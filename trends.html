@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trending Notes | Purushothaman Manivannan</title>
 
-  <!-- Open Graph -->
+  <!-- Open Graph (fill later if you add OG image) -->
   <meta property="og:title" content="Trending Notes | Purushothaman Manivannan" />
   <meta property="og:description" content="Short explainers: what’s trending online, what it means, and why it’s everywhere." />
   <meta property="og:type" content="website" />
-  <!-- When ready:
+  <!--
   <meta property="og:url" content="https://purushothaman-98.github.io/trends.html" />
   <meta property="og:image" content="https://purushothaman-98.github.io/assets/og-trends.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -17,111 +17,93 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Palette */
-      --ink: #0f1f2e;           /* deep navy */
-      --ink-2: #17334b;         /* slate navy */
-      --accent: #c0a062;        /* bronze */
-      --bg: #f4f6f8;            /* soft neutral */
-      --surface: #ffffff;
-      --muted: #5f6f7f;
-      --muted-2: #7c8b99;
+      --ink: #0f1f2e;
+      --ink2:#17334b;
+      --accent:#c0a062;
+      --bg:#f4f6f8;
+      --surface:#ffffff;
+
+      --text:#182533;
+      --muted:#607082;
       --border: rgba(15,31,46,0.10);
 
-      /* Effects */
-      --shadow: 0 12px 30px rgba(15,31,46,0.08);
-      --shadow-sm: 0 8px 18px rgba(15,31,46,0.06);
+      --shadow: 0 12px 28px rgba(15,31,46,0.08);
+      --shadowSm: 0 8px 18px rgba(15,31,46,0.06);
 
-      /* Geometry */
       --radius: 18px;
-      --radius-sm: 14px;
+      --radiusSm: 14px;
 
-      /* Spacing */
       --pad: 26px;
+      --padSm: 18px;
 
-      /* Motion */
-      --transition: 160ms ease;
-
-      /* Typography scale */
-      --text: 16px;
+      --t: 160ms ease;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      background: var(--bg);
-      color: #182533;
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: var(--text);
-      line-height: 1.75;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.75;
+      font-size:16px;
     }
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width: 940px; margin:0 auto; padding:0 18px; }
 
     h1,h2,h3{
       margin:0;
       font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       letter-spacing:-0.02em;
-      color: var(--ink);
+      color:var(--ink);
     }
 
-    a{ color: inherit; text-decoration:none; }
-
-    .container{
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* HEADER */
+    /* Header */
     header{
       background:
-        radial-gradient(1200px 420px at 50% -10%, rgba(192,160,98,0.22), transparent 62%),
-        linear-gradient(135deg, var(--ink), var(--ink-2));
-      color: #fff;
-      padding: 44px 0 64px;
-      position: relative;
+        radial-gradient(1100px 420px at 50% -10%, rgba(192,160,98,0.22), transparent 62%),
+        linear-gradient(135deg, var(--ink), var(--ink2));
+      color:#fff;
+      padding: 42px 0 58px;
       overflow:hidden;
     }
-
     .topline{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:14px;
+      gap:12px;
       flex-wrap:wrap;
-      margin-bottom: 18px;
-      opacity: 0.95;
+      margin-bottom:16px;
+      opacity:0.96;
     }
-
     .brand{
-      font-weight:700;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-      color: rgba(255,255,255,0.92);
+      font-weight:800;
+      font-size:0.95rem;
+      letter-spacing:0.02em;
+      color:rgba(255,255,255,0.92);
     }
-    .brand span{ color: var(--accent); font-weight:800; }
-
+    .brand span{ color:var(--accent); }
     .nav{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
-
     .nav a{
       display:inline-flex;
       align-items:center;
-      gap:8px;
       border: 1px solid rgba(255,255,255,0.22);
       padding: 9px 13px;
       border-radius: 999px;
-      font-weight:600;
-      font-size: 0.92rem;
+      font-weight:700;
+      font-size:0.92rem;
       color: rgba(255,255,255,0.92);
-      transition: transform var(--transition), background var(--transition), border-color var(--transition);
+      transition: transform var(--t), background var(--t), border-color var(--t);
       backdrop-filter: blur(10px);
       -webkit-tap-highlight-color: transparent;
     }
@@ -131,61 +113,54 @@
       border-color: rgba(255,255,255,0.30);
     }
     .nav a.accent{
-      border-color: rgba(192,160,98,0.70);
-      box-shadow: 0 0 0 1px rgba(192,160,98,0.20) inset;
+      border-color: rgba(192,160,98,0.72);
+      box-shadow: 0 0 0 1px rgba(192,160,98,0.18) inset;
     }
 
     .hero h1{
-      color: #fff;
-      font-weight: 800;
-      font-size: clamp(2.0rem, 3.4vw, 2.75rem);
-      margin-bottom: 8px;
-      letter-spacing: -0.03em;
+      color:#fff;
+      font-weight:800;
+      font-size: clamp(1.95rem, 3.6vw, 2.65rem);
+      letter-spacing:-0.03em;
+      margin-bottom:8px;
     }
     .hero p{
-      margin: 0;
+      margin:0;
       color: rgba(255,255,255,0.88);
-      max-width: 78ch;
+      max-width: 72ch;
     }
     .hero .note{
       margin-top: 12px;
+      font-size:0.98rem;
       color: rgba(255,255,255,0.86);
-      font-size: 0.98rem;
     }
-    .hero .note strong{ color: var(--accent); font-weight: 800; }
+    .hero .note strong{ color:var(--accent); font-weight:800; }
 
-    /* MAIN WRAPPER */
-    main{
-      margin-top: -34px;
-      padding-bottom: 56px;
-    }
-
-    section{
+    /* Main panels */
+    main{ margin-top:-26px; padding-bottom: 52px; }
+    .panel{
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: var(--pad);
-      margin: 18px 0;
+      margin: 16px 0;
     }
-
-    .section-title{
+    .panelHead{
       display:flex;
-      align-items:flex-end;
       justify-content:space-between;
+      align-items:flex-end;
       gap:12px;
       flex-wrap:wrap;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
-
-    .section-title h2{
-      font-size: 1.55rem;
-      font-weight: 800;
-      position: relative;
-      padding-bottom: 10px;
+    .panelHead h2{
+      font-size:1.5rem;
+      font-weight:800;
+      position:relative;
+      padding-bottom:10px;
     }
-
-    .section-title h2::after{
+    .panelHead h2::after{
       content:"";
       position:absolute;
       left:0;
@@ -195,91 +170,75 @@
       background: var(--accent);
       border-radius: 999px;
     }
-
-    .subtle{
+    .metaLine{
       color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-weight:600;
+      font-size:0.95rem;
     }
 
-    /* GRID FOR CARDS */
-    .grid{
-      display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 16px;
-    }
-
-    .card{
-      background: #fff;
+    /* Trend card */
+    .trend{
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-sm);
-      padding: 18px;
-      transition: transform var(--transition);
+      border-radius: var(--radiusSm);
+      box-shadow: var(--shadowSm);
+      padding: var(--padSm);
+      background:#fff;
     }
-    .card:hover{ transform: translateY(-1px); }
-
-    .entry-head{
+    .trendTitle{
       display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
+      flex-direction:column;
+      gap:6px;
       margin-bottom: 12px;
     }
-
-    .entry-title{
-      font-size: 1.18rem;
-      font-weight: 850;
-      line-height: 1.25;
-      color: var(--ink);
+    .trendTitle h3{
+      font-size:1.20rem;
+      font-weight:850;
+      line-height:1.25;
     }
-
-    .chips{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .trendMeta{
+      color: var(--muted);
+      font-weight:600;
+      font-size:0.95rem;
     }
-
-    .chip{
-      font-size: 0.80rem;
-      font-weight: 800;
+    .tag{
+      display:inline-block;
+      margin-left:8px;
+      font-size:0.78rem;
+      font-weight:800;
       color: var(--ink);
       background: rgba(192,160,98,0.14);
-      border: 1px solid rgba(192,160,98,0.32);
-      padding: 6px 10px;
+      border: 1px solid rgba(192,160,98,0.30);
+      padding: 5px 10px;
       border-radius: 999px;
+      vertical-align: middle;
       white-space:nowrap;
     }
 
-    /* META (desktop) */
-    .meta{
-      display:grid;
-      grid-template-columns: 150px 1fr;
-      gap: 8px 12px;
-      padding: 12px;
-      background: rgba(15,31,46,0.03);
-      border: 1px solid rgba(15,31,46,0.06);
-      border-radius: 12px;
-      margin: 12px 0 14px;
-      font-size: 0.95rem;
+    .block{
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(15,31,46,0.08);
     }
-    .meta .k{ color: var(--muted-2); font-weight: 800; }
-    .meta .v{ color: #2b3a49; font-weight: 600; }
-
+    .block:first-of-type{
+      border-top:none;
+      padding-top:0;
+      margin-top:0;
+    }
     .label{
-      display:inline-block;
-      font-weight: 850;
+      display:block;
+      font-weight:850;
       color: var(--ink);
-      margin-top: 10px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
-    .card p{
-      margin: 8px 0;
-      color: #334556;
+    .block p{ margin:0; color:#334556; }
+    .block ul{
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color:#334556;
     }
+    .block li{ margin: 6px 0; }
 
-    /* DETAILS */
+    /* Details (collapsible = less clutter) */
     details{
       margin-top: 12px;
       border-top: 1px solid rgba(15,31,46,0.08);
@@ -288,7 +247,7 @@
     summary{
       list-style:none;
       cursor:pointer;
-      font-weight: 850;
+      font-weight:850;
       color: var(--ink);
       display:flex;
       align-items:center;
@@ -301,69 +260,64 @@
     summary::after{
       content:"▾";
       color: rgba(15,31,46,0.62);
-      font-size: 1.05rem;
+      font-size:1.05rem;
       transform: rotate(-90deg);
-      transition: transform var(--transition);
+      transition: transform var(--t);
     }
     details[open] summary::after{ transform: rotate(0deg); }
 
-    /* CAPTION + COPY */
-    .caption{
+    /* Caption + Copy */
+    .captionBox{
+      margin-top:10px;
       background: rgba(15,31,46,0.03);
       border: 1px solid rgba(15,31,46,0.08);
       border-radius: 12px;
       padding: 12px;
-      color: #2a3a49;
-      font-size: 0.98rem;
-      line-height: 1.65;
       white-space: pre-wrap;
-      margin: 10px 0 12px;
+      color:#2a3a49;
     }
-
-    .btn-row{
+    .actions{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       align-items:center;
-      justify-content:flex-start;
+      margin-top:10px;
     }
-
-    button.copy-btn{
+    button.copyBtn{
       appearance:none;
-      border: 1px solid rgba(15,31,46,0.16);
-      background: #fff;
+      border: 1px solid rgba(15,31,46,0.18);
+      background:#fff;
       color: var(--ink);
       border-radius: 999px;
       padding: 10px 14px;
-      font-weight: 850;
+      font-weight:850;
       cursor:pointer;
-      transition: transform var(--transition), background var(--transition), border-color var(--transition);
+      transition: transform var(--t), background var(--t), border-color var(--t);
+      min-height: 42px;
       -webkit-tap-highlight-color: transparent;
-      min-height: 42px; /* better mobile tap */
     }
-    button.copy-btn:hover{
+    button.copyBtn:hover{
       transform: translateY(-1px);
-      border-color: rgba(192,160,98,0.55);
+      border-color: rgba(192,160,98,0.60);
       background: rgba(192,160,98,0.10);
     }
-
     .toast{
-      font-size: 0.92rem;
       color: var(--muted);
-      font-weight: 750;
-      min-height: 20px;
+      font-weight:700;
+      font-size:0.92rem;
+      min-height: 18px;
     }
 
-    /* SOURCES */
+    /* Sources */
     .sources{
       margin: 10px 0 0;
       padding-left: 18px;
-      color: #415262;
+      color:#415262;
     }
-    .sources li{ margin: 8px 0; }
+    .sources li{ margin:8px 0; }
     .sources a{
+      font-weight:850;
       color: var(--ink);
-      font-weight: 850;
       border-bottom: 2px solid rgba(192,160,98,0.55);
     }
     .sources a:hover{
@@ -373,54 +327,20 @@
 
     footer{
       text-align:center;
-      color: #7a8796;
-      padding: 30px 0 40px;
-      font-size: 0.92rem;
+      color:#7a8796;
+      padding: 28px 0 40px;
+      font-size:0.92rem;
     }
 
-    /* MOBILE TUNING */
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-
+    /* Mobile: reduce padding + simplify nav + full-width button */
     @media (max-width: 560px){
-      :root{ --text: 15.5px; --pad: 20px; }
-
-      header{ padding: 38px 0 54px; }
-      .topline{ margin-bottom: 14px; }
-
-      .brand{ font-size: 0.92rem; }
-      .nav{ width: 100%; justify-content:flex-start; }
-      .nav a{ width: auto; }
-
-      main{ margin-top: -26px; }
-
-      section{ padding: var(--pad); }
-
-      .section-title h2{ font-size: 1.40rem; }
-      .subtle{ font-size: 0.92rem; }
-
-      .entry-head{ flex-direction: column; align-items:flex-start; }
-      .chips{ justify-content:flex-start; }
-
-      /* meta becomes stacked on mobile for perfect alignment */
-      .meta{
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-      .meta .k{
-        font-size: 0.86rem;
-        margin-top: 6px;
-      }
-      .meta .v{
-        font-size: 0.96rem;
-        padding-bottom: 2px;
-      }
-
-      .card{ padding: 16px; }
-
-      button.copy-btn{ width: 100%; justify-content:center; }
-      .toast{ width: 100%; }
+      body{ font-size: 15.5px; }
+      header{ padding: 36px 0 50px; }
+      .nav{ width:100%; justify-content:flex-start; }
+      .panel{ padding: 20px; }
+      .trend{ padding: 16px; }
+      button.copyBtn{ width:100%; justify-content:center; }
+      .toast{ width:100%; }
     }
   </style>
 </head>
@@ -446,93 +366,95 @@
   </header>
 
   <main class="container">
-    <section>
-      <div class="section-title">
+    <section class="panel">
+      <div class="panelHead">
         <h2>How I write these</h2>
-        <div class="subtle">A consistent format for quick reading + sharing</div>
+        <div class="metaLine">Fast to read • easy to share</div>
       </div>
-      <p class="subtle" style="margin:0;">
-        Each entry is structured as: <strong>What it is</strong> → <strong>What it means online</strong> → <strong>Why it’s trending now</strong>.
-        I also include a copy-paste caption and sources when useful.
+      <p class="metaLine" style="margin:0;">
+        Each entry follows: <strong>What it is</strong> → <strong>Meaning online</strong> → <strong>Why it’s trending now</strong>.
+        Share caption + news links are tucked into dropdowns to keep the page clean.
       </p>
     </section>
 
-    <section id="latest">
-      <div class="section-title">
+    <section class="panel" id="latest">
+      <div class="panelHead">
         <h2>Latest</h2>
-        <div class="subtle">Updated: Jan 2026</div>
+        <div class="metaLine">Last updated: <span id="lastUpdated">—</span></div>
       </div>
 
-      <div class="grid">
-        <!-- MAIN EXPLAINER -->
-        <article class="card">
-          <div class="entry-head">
-            <div class="entry-title">Nihilist Penguin (Lonely Penguin)</div>
-            <div class="chips">
-              <span class="chip">Meme / viral clip</span>
-              <span class="chip">2007 source</span>
-            </div>
+      <article class="trend">
+        <div class="trendTitle">
+          <h3>
+            Nihilist Penguin (Lonely Penguin)
+            <span class="tag">meme / viral clip</span>
+          </h3>
+          <div class="trendMeta">
+            Source: “Encounters at the End of the World” (2007) • First noted: Jan 2026
           </div>
+        </div>
 
-          <div class="meta" role="table" aria-label="Entry metadata">
-            <div class="k">First noted here</div><div class="v">Jan 2026</div>
-            <div class="k">Source media</div><div class="v">“Encounters at the End of the World” (2007)</div>
+        <div class="block">
+          <span class="label">What it is</span>
+          <p>
+            A short documentary clip of a lone Adélie penguin abruptly leaving its colony and walking inland toward distant mountains
+            (instead of heading toward the sea). It looks calm, stubborn, and slightly unsettling — which makes it extremely “captionable.”
+          </p>
+        </div>
+
+        <div class="block">
+          <span class="label">What it means online</span>
+          <p>
+            A symbol for burnout and quiet rebellion: “I’m done,” “walking away from responsibilities,” “soft-resetting life,” or “choosing chaos.”
+            People project their own mood onto a simple visual: one tiny figure leaving the crowd and heading into emptiness.
+          </p>
+        </div>
+
+        <div class="block">
+          <span class="label">Why it’s trending now (short + detailed)</span>
+          <ul>
+            <li><strong>Perfect format:</strong> short, loopable, silent-friendly, and works with any text overlay or dramatic music.</li>
+            <li><strong>Emotion match:</strong> the “walking away” image fits current online humor about burnout, detachment, and reset fantasies.</li>
+            <li><strong>Amplification:</strong> once big accounts/official posts referenced it, it jumped from niche meme to mainstream reposts and explainers.</li>
+          </ul>
+        </div>
+
+        <details>
+          <summary>Share caption (copy/paste)</summary>
+          <div id="cap1" class="captionBox">
+A 2007 documentary clip turned into a 2026 mood:
+one penguin quietly walking away from everything.
+Burnout? reset? choosing chaos? you decide.
           </div>
-
-          <div class="label">What it is</div>
-          <p>A short clip of a lone Adélie penguin walking away from its colony toward distant icy mountains.</p>
-
-          <div class="label">What it means online</div>
-          <p>Used for burnout / existential humor — “walking away from responsibilities,” “quiet quitting,” “choosing chaos,” etc.</p>
-
-          <details>
-            <summary>Why it’s trending now</summary>
-            <p>
-              Older clips resurface when a few edits perform well; then algorithms amplify them. This one is short,
-              loopable, and easy to remix (music + text overlay). Once it becomes a recognizable “format,” people reuse it
-              as a reaction post and it spreads across comment sections and reels.
-            </p>
-          </details>
-        </article>
-
-        <!-- SHARE BOX -->
-        <aside class="card">
-          <div class="entry-head">
-            <div class="entry-title">Share-ready caption</div>
-            <div class="chips">
-              <span class="chip">Copy / paste</span>
-            </div>
-          </div>
-
-          <div id="caption-nihilist-penguin" class="caption">
-A 2007 documentary clip went viral in 2026: a lone penguin walking “to nowhere.”
-People use it as a symbol of burnout, existential humor, and quietly quitting life for a day.
-          </div>
-
-          <div class="btn-row">
-            <button class="copy-btn" data-copy="#caption-nihilist-penguin">Copy caption</button>
+          <div class="actions">
+            <button class="copyBtn" data-copy="#cap1" aria-label="Copy caption">Copy caption</button>
             <span class="toast" id="toast"></span>
           </div>
+        </details>
 
-          <details style="margin-top:14px;">
-            <summary>Sources / reading</summary>
-            <ul class="sources">
-              <li><a href="https://trending.knowyourmeme.com/editorials/guides/what-is-the-nihilist-penguin-meme-why-a-video-of-a-penguin-walking-toward-a-mountain-from-a-werner-herzog-film-is-going-viral-explained" target="_blank" rel="noopener">Know Your Meme explainer</a></li>
-              <li><a href="https://www.moneycontrol.com/science/who-s-that-viral-penguin-walking-to-the-mountains-science-explained-behind-the-meme-article-13788547.html" target="_blank" rel="noopener">Science/context write-up</a></li>
-              <li><a href="https://www.newsweek.com/white-house-meme-about-greenland-penguin-sparks-jokes-backlash-11411140" target="_blank" rel="noopener">News coverage (political boost)</a></li>
-            </ul>
-          </details>
-        </aside>
-      </div>
+        <details>
+          <summary>News links (verified)</summary>
+          <ul class="sources">
+            <li>
+              <a href="https://www.hindustantimes.com/world-news/what-is-viral-nihilist-penguin-trend-on-social-media-that-even-trump-has-joined-101769242805293.html"
+                 target="_blank" rel="noopener">Hindustan Times — explainer on the trend</a>
+            </li>
+            <li>
+              <a href="https://www.telegraphindia.com/world/white-house-posts-image-of-donald-trump-and-penguin-cue-for-hilarious-fun-in-comments-section/cid/2144206"
+                 target="_blank" rel="noopener">The Telegraph — coverage of the “penguin” post boost</a>
+            </li>
+          </ul>
+        </details>
+      </article>
     </section>
 
-    <section id="archive">
-      <div class="section-title">
+    <section class="panel" id="archive">
+      <div class="panelHead">
         <h2>Archive</h2>
-        <div class="subtle">Older entries will move here</div>
+        <div class="metaLine">Older entries go here</div>
       </div>
-      <p class="subtle" style="margin:0;">
-        Coming soon. When you add a new trend, copy the “Latest” structure and move older ones here.
+      <p class="metaLine" style="margin:0;">
+        Coming soon. When you add a new trend, duplicate the “Latest” card and move older ones here.
       </p>
     </section>
 
@@ -542,6 +464,14 @@ People use it as a symbol of burnout, existential humor, and quietly quitting li
   </main>
 
   <script>
+    // Last updated (auto)
+    (function(){
+      const el = document.getElementById("lastUpdated");
+      const d = new Date(document.lastModified);
+      el.textContent = d.toLocaleDateString(undefined, { year:"numeric", month:"short", day:"2-digit" });
+    })();
+
+    // Copy caption
     (function () {
       const toast = document.getElementById("toast");
       const btns = document.querySelectorAll("[data-copy]");
