@@ -3,316 +3,483 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trending (Hobby) | Purushothaman Manivannan</title>
+  <title>Trending Notes (Hobby) | Purushothaman Manivannan</title>
 
-  <!-- Open Graph for Instagram/WhatsApp previews -->
-  <meta property="og:title" content="Trending Now (Hobby) | Purushothaman Manivannan" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trending Notes (Hobby) | Purushothaman Manivannan" />
   <meta property="og:description" content="Short explainers: what’s trending online, what it means, and why it’s everywhere." />
   <meta property="og:type" content="website" />
-  <!-- Optional: fill these when deployed
-  <meta property="og:url" content="https://YOURDOMAIN.com/trends.html" />
-  <meta property="og:image" content="https://YOURDOMAIN.com/assets/og-trends.png" />
+  <!-- Fill these after you add an OG image
+  <meta property="og:url" content="https://purushothaman-98.github.io/trends.html" />
+  <meta property="og:image" content="https://purushothaman-98.github.io/assets/og-trends.png" />
   -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary-color: #1a2a3a;
-      --secondary-color: #2c3e50;
-      --accent-color: #c0a062;
-      --bg-color: #f8f9fa;
-      --text-color: #333333;
-      --card-bg: #ffffff;
-      --shadow: 0 10px 30px rgba(0,0,0,0.08);
-      --transition: all 0.3s ease;
+    :root{
+      --ink: #152433;          /* deep navy */
+      --ink-2: #22384f;        /* slate */
+      --accent: #c0a062;       /* bronze */
+      --bg: #f6f7f9;           /* light neutral */
+      --surface: #ffffff;
+      --muted: #657384;
+      --border: rgba(21,36,51,0.10);
+      --shadow: 0 10px 28px rgba(21,36,51,0.08);
+      --shadow-sm: 0 6px 18px rgba(21,36,51,0.06);
+      --radius: 18px;
+      --radius-sm: 14px;
+      --transition: 160ms ease;
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.8;
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: #1f2a35;
+      line-height: 1.75;
     }
+    h1,h2,h3{
+      margin:0;
+      font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing:-0.02em;
+    }
+    a{ color: inherit; text-decoration:none; }
+    .container{ max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
-    h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin-top: 0; }
-
-    a { text-decoration: none; color: inherit; transition: var(--transition); }
-
-    header {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Header */
+    header{
+      background: radial-gradient(1200px 400px at 50% -10%, rgba(192,160,98,0.20), transparent 60%),
+                  linear-gradient(135deg, var(--ink), var(--ink-2));
       color: #fff;
-      padding: 4.5em 2em 3.5em;
-      text-align: center;
-      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
-    }
-
-    header h1 { font-size: 2.6em; font-weight: 700; margin-bottom: 0.2em; letter-spacing: -0.8px; }
-    header .subtitle { font-size: 1.1em; opacity: 0.9; color: rgba(255,255,255,0.92); }
-    header .tagline { margin-top: 0.8em; color: var(--accent-color); font-weight: 600; }
-
-    .top-nav {
-      margin-top: 1.4em;
-      display: flex;
-      justify-content: center;
-      gap: 0.8em;
-      flex-wrap: wrap;
-    }
-
-    .nav-link {
-      color: rgba(255,255,255,0.92);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.9em;
-    }
-
-    .nav-link:hover { background: rgba(255,255,255,0.12); transform: translateY(-1px); }
-
-    main {
-      max-width: 1000px;
-      margin: -2.5em auto 4em;
-      padding: 0 2em;
-    }
-
-    section {
-      background-color: var(--card-bg);
-      border-radius: 16px;
-      padding: 2.5em;
-      margin-bottom: 2em;
-      box-shadow: var(--shadow);
-      border-top: 4px solid var(--accent-color);
-      transition: var(--transition);
-    }
-
-    section:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
-
-    h2 {
-      color: var(--primary-color);
-      font-size: 1.8em;
-      margin-bottom: 1em;
+      padding: 44px 0 64px;
       position: relative;
-      display: inline-block;
+      overflow:hidden;
     }
-
-    h2::after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 3px;
-      background-color: var(--accent-color);
-      bottom: -5px;
-      left: 0;
+    .topline{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom: 18px;
+      opacity: 0.95;
     }
-
-    p { color: #555; margin-bottom: 1.2em; }
-
-    .pill {
-      display: inline-block;
-      padding: 6px 12px;
+    .brand{
+      font-weight:700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.92);
+    }
+    .brand span{ color: var(--accent); font-weight:700; }
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .nav a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(192,160,98,0.12);
-      border: 1px solid rgba(192,160,98,0.35);
-      color: var(--primary-color);
-      font-weight: 700;
-      font-size: 0.85em;
-      letter-spacing: 0.2px;
-      margin-bottom: 1em;
+      font-weight:600;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.92);
+      transition: transform var(--transition), background var(--transition), border-color var(--transition);
+      backdrop-filter: blur(8px);
+    }
+    .nav a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.30);
+    }
+    .nav a.accent{
+      border-color: rgba(192,160,98,0.65);
     }
 
-    /* “Table-like” layout (responsive) */
-    .trend-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 1.5em;
-      margin-top: 1.2em;
+    .hero h1{
+      font-size: clamp(2.0rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .hero p{
+      margin: 0;
+      color: rgba(255,255,255,0.88);
+      max-width: 72ch;
+    }
+    .hero .note{
+      margin-top: 10px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.98rem;
+    }
+    .hero .note strong{ color: var(--accent); font-weight: 700; }
+
+    /* Main */
+    main{ margin-top: -34px; padding-bottom: 52px; }
+    section{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      margin: 18px 0;
+    }
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom: 16px;
+    }
+    .section-title h2{
+      color: var(--ink);
+      font-size: 1.6rem;
+      font-weight: 800;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .section-title h2::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width: 54px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+    .subtle{
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .trend-box {
-      border: 1px solid #eee;
-      border-radius: 14px;
-      padding: 1.2em 1.2em;
+    /* Entry cards */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+    .card{
       background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      padding: 18px;
+    }
+    .card:hover{
+      transform: translateY(-1px);
+      transition: transform var(--transition);
     }
 
-    .trend-box h3 {
-      margin: 0 0 0.4em 0;
-      font-size: 1.2em;
-      color: var(--primary-color);
+    .entry-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 10px;
     }
-
-    .meta {
-      font-size: 0.95em;
-      color: #666;
-      margin-bottom: 0.8em;
+    .entry-title{
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.25;
     }
-
-    .meta strong { color: var(--primary-color); }
-
-    details {
-      border-top: 1px dashed #e6e6e6;
-      padding-top: 0.8em;
-      margin-top: 0.8em;
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-
-    summary {
-      cursor: pointer;
+    .chip{
+      font-size: 0.80rem;
       font-weight: 700;
-      color: var(--primary-color);
+      color: var(--ink);
+      background: rgba(192,160,98,0.14);
+      border: 1px solid rgba(192,160,98,0.30);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space:nowrap;
+    }
+    .meta{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap: 8px 12px;
+      padding: 12px;
+      background: rgba(21,36,51,0.03);
+      border: 1px solid rgba(21,36,51,0.06);
+      border-radius: 12px;
+      margin: 12px 0 12px;
+      font-size: 0.95rem;
+    }
+    .meta .k{ color: var(--muted); font-weight: 700; }
+    .meta .v{ color: #2b3a49; }
+
+    .label{
+      display:inline-block;
+      font-weight: 800;
+      color: var(--ink);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+    .card p{
+      margin: 8px 0;
+      color: #3a4a5a;
     }
 
-    .src-list {
-      padding-left: 1.1em;
-      margin: 0.8em 0 0;
-      color: #666;
+    /* Details (clean + professional) */
+    details{
+      margin-top: 12px;
+      border-top: 1px solid rgba(21,36,51,0.08);
+      padding-top: 10px;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight: 800;
+      color: var(--ink);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    summary::after{
+      content:"▾";
+      color: rgba(21,36,51,0.65);
+      font-size: 1.05rem;
+      transform: rotate(-90deg);
+      transition: transform var(--transition);
+    }
+    details[open] summary::after{ transform: rotate(0deg); }
+    details p{
+      margin-top: 10px;
+      color: #3a4a5a;
     }
 
-    .src-list a {
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--accent-color);
-      font-weight: 600;
+    /* Caption box + copy button */
+    .caption{
+      background: rgba(21,36,51,0.03);
+      border: 1px solid rgba(21,36,51,0.08);
+      border-radius: 12px;
+      padding: 12px;
+      color: #2d3a48;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      margin: 10px 0 12px;
+    }
+    .btn-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-start;
+    }
+    button.copy-btn{
+      appearance:none;
+      border: 1px solid rgba(21,36,51,0.16);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor:pointer;
+      transition: transform var(--transition), background var(--transition), border-color var(--transition);
+    }
+    button.copy-btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(192,160,98,0.55);
+      background: rgba(192,160,98,0.10);
+    }
+    .toast{
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 700;
     }
 
-    .src-list a:hover { background: var(--accent-color); color: #fff; }
-
-    footer {
-      text-align: center;
-      padding: 2.5em 1em;
-      color: #888;
-      font-size: 0.9em;
-      background-color: #fff;
-      border-top: 1px solid #eaeaea;
+    /* Sources */
+    .sources{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #415262;
+    }
+    .sources li{ margin: 8px 0; }
+    .sources a{
+      color: var(--ink);
+      font-weight: 800;
+      border-bottom: 2px solid rgba(192,160,98,0.55);
+    }
+    .sources a:hover{
+      background: rgba(192,160,98,0.18);
+      border-bottom-color: rgba(192,160,98,0.95);
     }
 
-    @media (max-width: 820px) {
-      .trend-grid { grid-template-columns: 1fr; }
+    footer{
+      text-align:center;
+      color: #7a8796;
+      padding: 30px 0 40px;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.1em; }
-      section { padding: 2em 1.3em; }
-      main { margin-top: -1.8em; }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+      .meta{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Trending Now</h1>
-    <div class="subtitle">A small hobby page: short explainers on memes & viral formats.</div>
-    <div class="tagline">What it is • What it means • Why it’s everywhere</div>
+    <div class="container">
+      <div class="topline">
+        <div class="brand">Purushothaman Manivannan <span>•</span> Trending Notes</div>
+        <div class="nav">
+          <a href="index.html">← Back to Research</a>
+          <a class="accent" href="#latest">Latest</a>
+          <a href="#archive">Archive</a>
+        </div>
+      </div>
 
-    <nav class="top-nav" aria-label="Primary navigation">
-      <a class="nav-link" href="index.html">← Back to Research</a>
-      <a class="nav-link" href="#latest">Latest</a>
-      <a class="nav-link" href="#archive">Archive</a>
-    </nav>
+      <div class="hero">
+        <h1>Trending Notes (Hobby)</h1>
+        <p>Short, tidy explainers on memes & viral formats — what it is, what it means, and why it’s everywhere.</p>
+        <p class="note"><strong>Note:</strong> this is a personal hobby page (separate from my research work).</p>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <main class="container">
     <section>
-      <span class="pill">How to use this page</span>
-      <p>
-        I’ll occasionally add a new entry when something is trending. Each entry follows the same structure:
-        <strong>What it is</strong>, <strong>what it means online</strong>, and <strong>why it’s trending now</strong>.
-      </p>
-      <p style="margin-bottom:0;">
-        Tip: If you’re sharing this on Instagram, share the direct link to this page so people land here immediately.
+      <div class="section-title">
+        <h2>How I write these</h2>
+        <div class="subtle">A consistent format for quick reading + sharing</div>
+      </div>
+      <p class="subtle" style="margin:0;">
+        Each entry is structured as: <strong>What it is</strong> → <strong>What it means online</strong> → <strong>Why it’s trending now</strong>.
+        I also include a copy-paste caption and sources when useful.
       </p>
     </section>
 
     <section id="latest">
-      <h2>Latest</h2>
+      <div class="section-title">
+        <h2>Latest</h2>
+        <div class="subtle">Updated: Jan 2026</div>
+      </div>
 
-      <div class="trend-grid">
-        <!-- LEFT: the “table row” -->
-        <div class="trend-box">
-          <h3>Nihilist Penguin (Lonely Penguin)</h3>
-          <div class="meta">
-            <strong>Category:</strong> Meme / viral clip <br>
-            <strong>First noted here:</strong> Jan 2026 <br>
-            <strong>Source media:</strong> “Encounters at the End of the World” (2007)
+      <div class="grid">
+        <!-- MAIN EXPLAINER -->
+        <article class="card">
+          <div class="entry-head">
+            <div class="entry-title">Nihilist Penguin (Lonely Penguin)</div>
+            <div class="chips">
+              <span class="chip">Meme / viral clip</span>
+              <span class="chip">2007 source</span>
+            </div>
           </div>
 
-          <p><strong>What it is:</strong> A short clip of a lone Adélie penguin walking away from its colony toward distant icy mountains.</p>
-          <p><strong>What it means online:</strong> People caption it with burnout / existential humor — “walking away from responsibilities,” “quiet quitting,” “choosing chaos,” etc.</p>
+          <div class="meta" role="table" aria-label="Entry metadata">
+            <div class="k">First noted here</div><div class="v">Jan 2026</div>
+            <div class="k">Source media</div><div class="v">“Encounters at the End of the World” (2007)</div>
+          </div>
+
+          <div class="label">What it is</div>
+          <p>A short clip of a lone Adélie penguin walking away from its colony toward distant icy mountains.</p>
+
+          <div class="label">What it means online</div>
+          <p>Used for burnout / existential humor — “walking away from responsibilities,” “quiet quitting,” “choosing chaos,” etc.</p>
 
           <details>
             <summary>Why it’s trending now</summary>
-            <p style="margin-top:0.8em;">
-              Old clips resurface when edits start performing well, then algorithms amplify them. This one is short,
-              loopable, dramatic, and easy to remix (music + text overlay). Some meme coverage also boosted it further
-              through politics/satire references.
+            <p>
+              Older clips resurface when a few edits perform well; then algorithms amplify them. This one is short,
+              loopable, and easy to remix (music + text overlay). Once it becomes a recognizable “format,” people reuse it
+              as a reaction post and it spreads across comment sections and reels.
             </p>
           </details>
-        </div>
+        </article>
 
-        <!-- RIGHT: quick “share-ready” summary -->
-        <div class="trend-box">
-          <h3>Share-ready caption (copy/paste)</h3>
-          <p style="margin-top:0.6em;">
-            A 2007 documentary clip went viral in 2026: a lone penguin walking “to nowhere.”
-            People use it as a symbol of burnout, existential humor, and quietly quitting life for a day.
-          </p>
+        <!-- SHARE BOX -->
+        <aside class="card">
+          <div class="entry-head">
+            <div class="entry-title">Share-ready caption</div>
+            <div class="chips">
+              <span class="chip">Copy / paste</span>
+            </div>
+          </div>
 
-          <details>
+          <div id="caption-nihilist-penguin" class="caption">
+A 2007 documentary clip went viral in 2026: a lone penguin walking “to nowhere.”
+People use it as a symbol of burnout, existential humor, and quietly quitting life for a day.
+          </div>
+
+          <div class="btn-row">
+            <button class="copy-btn" data-copy="#caption-nihilist-penguin">Copy caption</button>
+            <span class="toast" id="toast"></span>
+          </div>
+
+          <details style="margin-top:14px;">
             <summary>Sources / reading</summary>
-            <ul class="src-list">
+            <ul class="sources">
               <li><a href="https://trending.knowyourmeme.com/editorials/guides/what-is-the-nihilist-penguin-meme-why-a-video-of-a-penguin-walking-toward-a-mountain-from-a-werner-herzog-film-is-going-viral-explained" target="_blank" rel="noopener">Know Your Meme explainer</a></li>
               <li><a href="https://www.moneycontrol.com/science/who-s-that-viral-penguin-walking-to-the-mountains-science-explained-behind-the-meme-article-13788547.html" target="_blank" rel="noopener">Science/context write-up</a></li>
-              <li><a href="https://www.newsweek.com/white-house-meme-about-greenland-penguin-sparks-jokes-backlash-11411140" target="_blank" rel="noopener">News coverage on political boost</a></li>
+              <li><a href="https://www.newsweek.com/white-house-meme-about-greenland-penguin-sparks-jokes-backlash-11411140" target="_blank" rel="noopener">News coverage (political boost)</a></li>
             </ul>
           </details>
-        </div>
+        </aside>
       </div>
     </section>
 
     <section id="archive">
-      <h2>Archive</h2>
-      <p>
-        Coming soon. When you add a new trend, move older ones here.
-      </p>
-
-      <!-- TEMPLATE: Copy this block to add a new trend
-      <div class="trend-grid" style="margin-top:1.2em;">
-        <div class="trend-box">
-          <h3>Trend Name</h3>
-          <div class="meta">
-            <strong>Category:</strong> ___ <br>
-            <strong>First noted here:</strong> ___ <br>
-            <strong>Source media:</strong> ___
-          </div>
-          <p><strong>What it is:</strong> ___</p>
-          <p><strong>What it means online:</strong> ___</p>
-          <details>
-            <summary>Why it’s trending now</summary>
-            <p style="margin-top:0.8em;">___</p>
-          </details>
-        </div>
-        <div class="trend-box">
-          <h3>Share-ready caption (copy/paste)</h3>
-          <p>___</p>
-          <details>
-            <summary>Sources / reading</summary>
-            <ul class="src-list">
-              <li><a href="___" target="_blank" rel="noopener">Source 1</a></li>
-            </ul>
-          </details>
-        </div>
+      <div class="section-title">
+        <h2>Archive</h2>
+        <div class="subtle">Older entries will move here</div>
       </div>
-      -->
+      <p class="subtle" style="margin:0;">
+        Coming soon. When you add a new trend, copy the “Latest” structure and move older ones here.
+      </p>
     </section>
+
+    <footer>
+      &copy; 2026 Purushothaman Manivannan • Trending Notes
+    </footer>
   </main>
 
-  <footer>
-    &copy; 2026 Purushothaman Manivannan • Trending (Hobby)
-  </footer>
+  <script>
+    (function () {
+      const toast = document.getElementById("toast");
+      const btns = document.querySelectorAll("[data-copy]");
+      btns.forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const sel = btn.getAttribute("data-copy");
+          const el = document.querySelector(sel);
+          if (!el) return;
+
+          const text = el.innerText.trim();
+          try {
+            await navigator.clipboard.writeText(text);
+            toast.textContent = "Copied ✓";
+          } catch (e) {
+            // fallback
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            toast.textContent = "Copied ✓";
+          }
+          setTimeout(() => (toast.textContent = ""), 1200);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
