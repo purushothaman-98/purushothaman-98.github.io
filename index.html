@@ -4,16 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Purushothaman Manivannan | Research Portfolio</title>
+
+  <!-- Open Graph (nice previews when shared) -->
+  <meta property="og:title" content="Purushothaman Manivannan | Research Portfolio" />
+  <meta property="og:description" content="PhD Researcher @ University of Antwerp | Computational materials modeling, DFT & 2D materials." />
+  <meta property="og:type" content="website" />
+  <!-- Optional: set these when you have a real domain + image
+  <meta property="og:url" content="https://YOURDOMAIN.com/" />
+  <meta property="og:image" content="https://YOURDOMAIN.com/assets/og-image.png" />
+  -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
-      /* Color Palette */
-      --primary-color: #1a2a3a; /* Deep Navy */
-      --secondary-color: #2c3e50; /* Slate */
-      --accent-color: #c0a062; /* Muted Gold/Bronze */
+      --primary-color: #1a2a3a;
+      --secondary-color: #2c3e50;
+      --accent-color: #c0a062;
       --bg-color: #f8f9fa;
       --text-color: #333333;
       --card-bg: #ffffff;
@@ -21,9 +30,7 @@
       --transition: all 0.3s ease;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Open Sans', sans-serif;
@@ -39,17 +46,12 @@
       margin-top: 0;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: var(--transition);
-    }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
 
-    /* --- HERO SECTION --- */
     header {
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: #fff;
-      padding: 6em 2em;
+      padding: 6em 2em 4.5em;
       text-align: center;
       position: relative;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -65,7 +67,7 @@
     header .role {
       font-size: 1.4em;
       font-weight: 400;
-      opacity: 0.9;
+      opacity: 0.95;
       color: var(--accent-color);
       margin-bottom: 0.5em;
     }
@@ -73,18 +75,54 @@
     header .lab {
       font-size: 1.1em;
       font-weight: 300;
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
-    /* --- MAIN CONTAINER --- */
+    /* NAV */
+    .top-nav {
+      max-width: 1000px;
+      margin: 1.5em auto 0;
+      padding: 0 2em;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9em;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.35);
+      transform: translateY(-1px);
+    }
+
+    .nav-link.accent {
+      border-color: rgba(192,160,98,0.6);
+      color: #fff;
+    }
+
+    .nav-link.accent:hover {
+      background: rgba(192,160,98,0.22);
+      border-color: rgba(192,160,98,0.85);
+    }
+
     main {
       max-width: 1000px;
-      margin: -4em auto 4em; /* Negative margin pulls it up into the header */
+      margin: -3.5em auto 4em;
       padding: 0 2em;
       position: relative;
     }
 
-    /* --- CARDS --- */
     section {
       background-color: var(--card-bg);
       border-radius: 16px;
@@ -118,33 +156,19 @@
       left: 0;
     }
 
-    p {
-      color: #555;
-      margin-bottom: 1.5em;
-    }
+    p { color: #555; margin-bottom: 1.5em; }
 
-    strong {
-      color: var(--primary-color);
-      font-weight: 600;
-    }
+    strong { color: var(--primary-color); font-weight: 600; }
 
-    /* --- LINKS --- */
     .content-link {
       color: var(--primary-color);
       font-weight: 600;
       border-bottom: 2px solid var(--accent-color);
     }
 
-    .content-link:hover {
-      background-color: var(--accent-color);
-      color: white;
-    }
+    .content-link:hover { background-color: var(--accent-color); color: white; }
 
-    /* --- PUBLICATION LIST --- */
-    ul.pub-list {
-      list-style: none;
-      padding: 0;
-    }
+    ul.pub-list { list-style: none; padding: 0; }
 
     ul.pub-list li {
       margin-bottom: 1.5em;
@@ -153,9 +177,7 @@
       transition: var(--transition);
     }
 
-    ul.pub-list li:hover {
-      border-left-color: var(--accent-color);
-    }
+    ul.pub-list li:hover { border-left-color: var(--accent-color); }
 
     .pub-title {
       font-family: 'Montserrat', sans-serif;
@@ -166,12 +188,8 @@
       color: var(--primary-color);
     }
 
-    .pub-journal {
-      font-style: italic;
-      color: var(--accent-color);
-    }
+    .pub-journal { font-style: italic; color: var(--accent-color); }
 
-    /* --- CONTACT BUTTONS --- */
     .contact-container {
       display: flex;
       gap: 1.5em;
@@ -190,15 +208,8 @@
       transition: var(--transition);
     }
 
-    .btn-primary {
-      background-color: var(--primary-color);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--accent-color);
-      transform: translateY(-2px);
-    }
+    .btn-primary { background-color: var(--primary-color); color: white; }
+    .btn-primary:hover { background-color: var(--accent-color); transform: translateY(-2px); }
 
     .btn-secondary {
       background-color: transparent;
@@ -206,12 +217,26 @@
       color: var(--primary-color);
     }
 
-    .btn-secondary:hover {
-      background-color: var(--primary-color);
-      color: white;
+    .btn-secondary:hover { background-color: var(--primary-color); color: white; }
+
+    /* Teaser (for your hobby page) */
+    .teaser {
+      display: grid;
+      gap: 1em;
     }
 
-    /* --- FOOTER --- */
+    .teaser .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(192,160,98,0.12);
+      border: 1px solid rgba(192,160,98,0.35);
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 0.9em;
+      width: fit-content;
+    }
+
     footer {
       text-align: center;
       padding: 3em 1em;
@@ -221,31 +246,29 @@
       border-top: 1px solid #eaeaea;
     }
 
-    /* --- MOBILE RESPONSIVE --- */
     @media (max-width: 768px) {
-      header {
-        padding: 4em 1em;
-        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
-      }
-      header h1 {
-        font-size: 2.2em;
-      }
-      main {
-        margin-top: -2em;
-      }
-      section {
-        padding: 2em 1.5em;
-      }
+      header { padding: 4em 1em 3.5em; clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+      header h1 { font-size: 2.2em; }
+      main { margin-top: -2em; }
+      section { padding: 2em 1.5em; }
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <div class="header-content">
       <h1>Purushothaman Manivannan</h1>
       <div class="role">PhD Researcher @ University of Antwerp</div>
       <div class="lab">Computational Materials Modeling (COMMIT) Lab | DFT & 2D Materials</div>
+
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="#about-me">About</a>
+        <a class="nav-link" href="#research">Research</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link accent" href="trends.html">Trending (Hobby)</a>
+        <a class="nav-link" href="#contact-info">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -253,7 +276,7 @@
     <section id="about-me">
       <h2>About Me</h2>
       <p>Hello! I am <strong>Purushothaman Manivannan</strong>, a dedicated PhD Researcher at the <strong>University of Antwerp</strong> in Belgium. I operate within the <strong>Computational Materials Modeling (COMMIT) Lab</strong> under the supervision of Dr. Cem Sevik. My primary research focus encompasses excitonic calculations and the computational modeling of two-dimensional (2D) materials.</p>
-      <p>Previously, I served as a Junior Research Fellow at the <a href="https://lnkd.in/dWeZu9rw" target="_blank" class="content-link">Materials Modeling and Simulation Laboratory</a> at IIITDM Kancheepuram under the guidance of Dr. Debolina Misra. During this tenure, I explored the impact of defects, strain, and doping on the optoelectronic properties of strongly correlated oxide materials using Density Functional Theory (DFT).</p>
+      <p>Previously, I served as a Junior Research Fellow at the <a href="https://lnkd.in/dWeZu9rw" target="_blank" rel="noopener" class="content-link">Materials Modeling and Simulation Laboratory</a> at IIITDM Kancheepuram under the guidance of Dr. Debolina Misra. During this tenure, I explored the impact of defects, strain, and doping on the optoelectronic properties of strongly correlated oxide materials using Density Functional Theory (DFT).</p>
     </section>
 
     <section id="research">
@@ -266,7 +289,7 @@
       <h2>Selected Publications</h2>
       <ul class="pub-list">
         <li>
-          <a href="https://link.springer.com/article/10.1007/s11664-025-11735-8" target="_blank">
+          <a href="https://link.springer.com/article/10.1007/s11664-025-11735-8" target="_blank" rel="noopener">
             <span class="pub-title">Tuning the Optoelectronic Properties of SrVO₃ via Strain and Transition-Metal Doping</span>
             P. Manivannan, S. Giri, and D. Misra <br>
             <span class="pub-journal">Journal of Electronic Materials <strong>54</strong>, 2297 (2025)</span>
@@ -275,20 +298,35 @@
       </ul>
     </section>
 
+    <!-- NEW: hobby teaser -->
+    <section id="hobby">
+      <h2>Trending Now (Hobby)</h2>
+      <div class="teaser">
+        <span class="pill">Internet culture notes</span>
+        <p>
+          Outside research, I sometimes write short, human-friendly explainers on
+          <strong>what’s trending online</strong> and why — mainly memes, formats, and viral moments.
+        </p>
+        <div class="contact-container">
+          <a class="btn btn-primary" href="trends.html">Open Trending Page</a>
+          <a class="btn btn-secondary" href="trends.html#latest">Jump to Latest</a>
+        </div>
+      </div>
+    </section>
+
     <section id="contact-info">
       <h2>Get in Touch</h2>
       <p>I am always open to discussing research collaborations and new opportunities in computational materials science.</p>
       <div class="contact-container">
         <a href="mailto:bruse.higgs2cosmos@gmail.com" class="btn btn-primary">Email Me</a>
-        <a href="https://www.linkedin.com/in/purushothaman-manivannan-a720a4236/" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+        <a href="https://www.linkedin.com/in/purushothaman-manivannan-a720a4236/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn Profile</a>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Purushothaman Manivannan. All Rights Reserved. <br>
+    &copy; 2026 Purushothaman Manivannan. All Rights Reserved. <br>
     Research Profile
   </footer>
-
 </body>
 </html>
