@@ -5,15 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trending Notes | Purushothaman Manivannan</title>
 
-  <!-- Open Graph (fill later if you add OG image) -->
+  <!-- Open Graph (optional) -->
   <meta property="og:title" content="Trending Notes | Purushothaman Manivannan" />
   <meta property="og:description" content="Short explainers: what’s trending online, what it means, and why it’s everywhere." />
   <meta property="og:type" content="website" />
-  <!--
-  <meta property="og:url" content="https://purushothaman-98.github.io/trends.html" />
-  <meta property="og:image" content="https://purushothaman-98.github.io/assets/og-trends.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,15 +58,49 @@
       color:var(--ink);
     }
 
-    /* Header */
+    /* HEADER (WITH IMAGE BACKGROUND) */
     header{
+      position: relative;
+      color:#fff;
+      padding: 44px 0 62px;
+      overflow:hidden;
+
+      /* fallback gradient if image doesn't load */
       background:
         radial-gradient(1100px 420px at 50% -10%, rgba(192,160,98,0.22), transparent 62%),
         linear-gradient(135deg, var(--ink), var(--ink2));
-      color:#fff;
-      padding: 42px 0 58px;
-      overflow:hidden;
     }
+
+    /* background image layer */
+    header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: url("penguin-explainer.png");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.9) contrast(1.05);
+      transform: scale(1.02);
+      opacity: 0.34; /* keep it subtle */
+      pointer-events:none;
+    }
+
+    /* dark overlay for readability */
+    header::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(10,18,28,0.72) 0%, rgba(10,18,28,0.82) 55%, rgba(10,18,28,0.92) 100%);
+      pointer-events:none;
+    }
+
+    /* content above overlays */
+    header .container{
+      position: relative;
+      z-index: 2;
+    }
+
     .topline{
       display:flex;
       justify-content:space-between;
@@ -79,7 +108,7 @@
       gap:12px;
       flex-wrap:wrap;
       margin-bottom:16px;
-      opacity:0.96;
+      opacity:0.98;
     }
     .brand{
       font-weight:800;
@@ -88,6 +117,7 @@
       color:rgba(255,255,255,0.92);
     }
     .brand span{ color:var(--accent); }
+
     .nav{
       display:flex;
       gap:10px;
@@ -106,10 +136,11 @@
       transition: transform var(--t), background var(--t), border-color var(--t);
       backdrop-filter: blur(10px);
       -webkit-tap-highlight-color: transparent;
+      background: rgba(255,255,255,0.06);
     }
     .nav a:hover{
       transform: translateY(-1px);
-      background: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.12);
       border-color: rgba(255,255,255,0.30);
     }
     .nav a.accent{
@@ -120,13 +151,14 @@
     .hero h1{
       color:#fff;
       font-weight:800;
-      font-size: clamp(1.95rem, 3.6vw, 2.65rem);
+      font-size: clamp(2.0rem, 3.8vw, 2.85rem);
       letter-spacing:-0.03em;
-      margin-bottom:8px;
+      margin-bottom:10px;
+      text-shadow: 0 10px 22px rgba(0,0,0,0.35);
     }
     .hero p{
       margin:0;
-      color: rgba(255,255,255,0.88);
+      color: rgba(255,255,255,0.90);
       max-width: 72ch;
     }
     .hero .note{
@@ -135,6 +167,31 @@
       color: rgba(255,255,255,0.86);
     }
     .hero .note strong{ color:var(--accent); font-weight:800; }
+
+    .heroBadgeRow{
+      margin-top: 16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight:800;
+      font-size:0.90rem;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+    .badge .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 2px rgba(192,160,98,0.22);
+    }
 
     /* Main panels */
     main{ margin-top:-26px; padding-bottom: 52px; }
@@ -238,7 +295,51 @@
     }
     .block li{ margin: 6px 0; }
 
-    /* Details (collapsible = less clutter) */
+    /* Image card (preview + zoom) */
+    .imgCard{
+      margin-top: 14px;
+      border: 1px solid rgba(15,31,46,0.10);
+      border-radius: 14px;
+      overflow:hidden;
+      background: #fff;
+    }
+    .imgBtn{
+      width: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      display:block;
+      cursor: zoom-in;
+      background: #fff;
+      -webkit-tap-highlight-color: transparent;
+      position: relative;
+    }
+    .imgBtn img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .imgHint{
+      position:absolute;
+      right: 10px;
+      bottom: 10px;
+      font-weight: 900;
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.95);
+      background: rgba(10,18,28,0.65);
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 6px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    .imgCaption{
+      padding: 10px 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(15,31,46,0.08);
+    }
+
+    /* Details (collapsible) */
     details{
       margin-top: 12px;
       border-top: 1px solid rgba(15,31,46,0.08);
@@ -332,15 +433,59 @@
       font-size:0.92rem;
     }
 
+    /* Lightbox */
+    .lightbox{
+      position: fixed;
+      inset: 0;
+      background: rgba(10,18,28,0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 999;
+    }
+    .lightbox.show{ display:flex; }
+    .lbInner{
+      width: min(980px, 100%);
+      max-height: 90vh;
+      background: #0b1420;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+      position: relative;
+    }
+    .lbInner img{
+      width: 100%;
+      height: 90vh;
+      object-fit: contain; /* important for tall infographic */
+      display:block;
+      background:#0b1420;
+    }
+    .lbClose{
+      position:absolute;
+      top: 10px;
+      right: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 900;
+      cursor:pointer;
+    }
+
     /* Mobile: reduce padding + simplify nav + full-width button */
     @media (max-width: 560px){
       body{ font-size: 15.5px; }
-      header{ padding: 36px 0 50px; }
+      header{ padding: 34px 0 50px; }
       .nav{ width:100%; justify-content:flex-start; }
       .panel{ padding: 20px; }
       .trend{ padding: 16px; }
       button.copyBtn{ width:100%; justify-content:center; }
       .toast{ width:100%; }
+      header::before{ opacity: 0.28; } /* keep hero readable on small screens */
     }
   </style>
 </head>
@@ -361,6 +506,11 @@
         <h1>Trending Notes</h1>
         <p>Short, tidy explainers on memes & viral formats — what it is, what it means, and why it’s everywhere.</p>
         <p class="note"><strong>Note:</strong> this is a personal hobby page (separate from my research work).</p>
+
+        <div class="heroBadgeRow">
+          <span class="badge"><span class="dot"></span> Now: Nihilist Penguin</span>
+          <span class="badge">Tap the image below to zoom</span>
+        </div>
       </div>
     </div>
   </header>
@@ -373,7 +523,7 @@
       </div>
       <p class="metaLine" style="margin:0;">
         Each entry follows: <strong>What it is</strong> → <strong>Meaning online</strong> → <strong>Why it’s trending now</strong>.
-        Share caption + news links are tucked into dropdowns to keep the page clean.
+        Share captions + links stay in dropdowns to keep the page clean.
       </p>
     </section>
 
@@ -394,11 +544,20 @@
           </div>
         </div>
 
+        <!-- IMAGE PREVIEW (click to zoom) -->
+        <div class="imgCard">
+          <button class="imgBtn" type="button" data-lightbox-src="penguin-explainer.png" aria-label="Open the explainer image full screen">
+            <img src="penguin-explainer.png" alt="Explainer infographic about the Nihilist Penguin meme" loading="lazy" decoding="async">
+            <span class="imgHint">Tap to zoom</span>
+          </button>
+          <div class="imgCaption">Visual explainer (tap to open full-screen).</div>
+        </div>
+
         <div class="block">
           <span class="label">What it is</span>
           <p>
-            A short documentary clip of a lone Adélie penguin abruptly leaving its colony and walking inland toward distant mountains
-            (instead of heading toward the sea). It looks calm, stubborn, and slightly unsettling — which makes it extremely “captionable.”
+            A documentary clip of a lone Adélie penguin abruptly leaving its colony and walking inland toward distant mountains
+            (instead of heading toward the sea). The calm “walk away” motion makes it instantly usable as a meme template.
           </p>
         </div>
 
@@ -406,16 +565,16 @@
           <span class="label">What it means online</span>
           <p>
             A symbol for burnout and quiet rebellion: “I’m done,” “walking away from responsibilities,” “soft-resetting life,” or “choosing chaos.”
-            People project their own mood onto a simple visual: one tiny figure leaving the crowd and heading into emptiness.
+            People project their mood onto a simple visual: one tiny figure leaving the crowd and heading into emptiness.
           </p>
         </div>
 
         <div class="block">
           <span class="label">Why it’s trending now (short + detailed)</span>
           <ul>
-            <li><strong>Perfect format:</strong> short, loopable, silent-friendly, and works with any text overlay or dramatic music.</li>
-            <li><strong>Emotion match:</strong> the “walking away” image fits current online humor about burnout, detachment, and reset fantasies.</li>
-            <li><strong>Amplification:</strong> once big accounts/official posts referenced it, it jumped from niche meme to mainstream reposts and explainers.</li>
+            <li><strong>Perfect format:</strong> short, loopable, silent-friendly, works with text overlay and dramatic music.</li>
+            <li><strong>Emotion match:</strong> “walking away” fits the current online language of burnout + reset fantasies.</li>
+            <li><strong>Amplification:</strong> once mainstream pages and news explain it, reposting becomes “safe,” so it spreads faster.</li>
           </ul>
         </div>
 
@@ -454,7 +613,7 @@ Burnout? reset? choosing chaos? you decide.
         <div class="metaLine">Older entries go here</div>
       </div>
       <p class="metaLine" style="margin:0;">
-        Coming soon. When you add a new trend, duplicate the “Latest” card and move older ones here.
+        Coming soon. When you add a new trend, duplicate the “Latest” block and move older ones here.
       </p>
     </section>
 
@@ -462,6 +621,14 @@ Burnout? reset? choosing chaos? you decide.
       &copy; 2026 Purushothaman Manivannan • Trending Notes
     </footer>
   </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lbInner">
+      <button class="lbClose" id="lbClose" type="button">Close ✕</button>
+      <img id="lbImg" alt="Expanded view" />
+    </div>
+  </div>
 
   <script>
     // Last updated (auto)
@@ -497,6 +664,32 @@ Burnout? reset? choosing chaos? you decide.
           setTimeout(() => (toast.textContent = ""), 1200);
         });
       });
+    })();
+
+    // Lightbox open/close
+    (function(){
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lbImg");
+      const lbClose = document.getElementById("lbClose");
+
+      function openLB(src){
+        lbImg.src = src;
+        lb.classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLB(){
+        lb.classList.remove("show");
+        lbImg.src = "";
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll("[data-lightbox-src]").forEach(btn => {
+        btn.addEventListener("click", () => openLB(btn.dataset.lightboxSrc));
+      });
+
+      lbClose.addEventListener("click", closeLB);
+      lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
     })();
   </script>
 </body>
