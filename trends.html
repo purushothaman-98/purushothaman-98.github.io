@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trending Notes | Purushothaman Manivannan</title>
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Trending Notes | Purushothaman Manivannan" />
   <meta property="og:description" content="Short explainers on what’s trending online — with context, mood, and share-ready captions." />
   <meta property="og:type" content="website" />
@@ -72,7 +73,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background-image: url("penguin-explainer.png");
+      background-image: url("penguin-explainer.png"); /* <-- update if your filename differs */
       background-size: cover;
       background-position: center;
       filter: saturate(0.9) contrast(1.05);
@@ -266,15 +267,19 @@
       padding-top:0;
       margin-top:0;
     }
+
+    /* make text clean & aligned */
+    .block p, .block li{ max-width: 72ch; }
     .label{
       display:block;
       font-weight:850;
       color: var(--ink);
       margin-bottom: 6px;
+      letter-spacing: -0.01em;
     }
     .block p{ margin:0; color:#334556; }
     .block ul{
-      margin: 8px 0 0;
+      margin: 6px 0 0;
       padding-left: 18px;
       color:#334556;
     }
@@ -461,6 +466,7 @@
       cursor:pointer;
     }
 
+    /* Mobile */
     @media (max-width: 560px){
       body{ font-size: 15.5px; }
       header{ padding: 34px 0 50px; }
@@ -512,48 +518,73 @@
             <span class="tag">meme / viral clip</span>
           </h3>
           <div class="trendMeta">
-            Source: “Encounters at the End of the World” (2007) • First noted: Jan 2026
+            Source: <em>Encounters at the End of the World</em> (2007) • First noted: Jan 2026
           </div>
         </div>
 
+        <!-- IMAGE (tap to zoom) -->
         <div class="imgCard">
           <button class="imgBtn" type="button" data-lightbox-src="penguin-explainer.png" aria-label="Open the explainer image full screen">
-            <img src="penguin-explainer.png" alt="Explainer infographic about the Nihilist Penguin meme" loading="lazy" decoding="async">
+            <img src="penguin-explainer.png" alt="Explainer infographic about the Nihilist Penguin trend" loading="lazy" decoding="async">
             <span class="imgHint">Tap to zoom</span>
           </button>
-          <div class="imgCaption">Visual explainer (tap to open full-screen).</div>
+          <div class="imgCaption">Explainer visual (tap for full-screen).</div>
         </div>
 
         <div class="block">
           <span class="label">What it is</span>
           <p>
-            A documentary clip of a lone Adélie penguin leaving its colony and walking inland toward distant mountains.
-            Minimal motion + huge vibe = perfect meme template.
+            A short scene from Werner Herzog’s 2007 documentary <em>Encounters at the End of the World</em>.
+            In the clip, a lone Adélie penguin leaves the colony and walks inland toward empty mountains
+            rather than heading toward the sea. The moment is visually simple and emotionally ambiguous,
+            which is why it keeps getting re-interpreted.
           </p>
         </div>
 
         <div class="block">
           <span class="label">What it means online</span>
           <p>
-            Burnout, quiet rebellion, “I’m done,” reset fantasies — the penguin becomes a stand-in for walking away from the noise.
+            Online, the penguin is used as a metaphor for burnout and detachment — not in a loud way,
+            but as “quiet exit energy”: stepping away from expectations, routines, or noise.
+            It functions less as a joke and more as a mood symbol people can project onto.
           </p>
         </div>
 
         <div class="block">
           <span class="label">Why it’s trending now</span>
           <ul>
-            <li><strong>Loop-friendly:</strong> short clip, works with captions + dramatic music.</li>
-            <li><strong>Relatable mood:</strong> the image matches current “detached / tired / reset” humor.</li>
-            <li><strong>Mainstream boost:</strong> once big pages/news referenced it, reposting exploded.</li>
+            <li><strong>Rediscovery + remix:</strong> old documentary clips resurface when short edits start performing well,
+                then recommendation feeds amplify them across platforms.</li>
+            <li><strong>Fits the current mood:</strong> the image of calmly walking away maps onto today’s language around burnout,
+                “reset,” and quiet disengagement.</li>
+            <li><strong>Mainstream & political boost:</strong> once widely shared/official posts referenced the penguin (including Greenland-adjacent framing),
+                it jumped from niche format to mainstream conversation, accelerating reposts and news coverage.</li>
           </ul>
+        </div>
+
+        <div class="block">
+          <span class="label">Why it matters (now)</span>
+          <p>
+            It’s a clear example of how the internet turns archival media into shared emotional language.
+            A short, context-rich scene becomes shorthand for modern stress, disengagement, and “I need a reset,”
+            which is why it spreads beyond meme circles into mainstream commentary.
+          </p>
+        </div>
+
+        <div class="block">
+          <span class="label">Political angle (brief)</span>
+          <p>
+            The trend gained extra velocity when it was reused in political messaging and reactions (notably around Greenland references),
+            turning it into a cross-audience symbol: part mood post, part satire, part commentary — and that hybrid spreads fastest.
+          </p>
         </div>
 
         <details>
           <summary>Share caption</summary>
           <div id="cap1" class="captionBox">
-A 2007 documentary clip turned into a 2026 mood:
-one penguin quietly walking away from everything.
-Burnout? reset? choosing chaos? you decide.
+A 2007 Herzog documentary moment turned into a 2026 symbol:
+a lone penguin leaving the crowd and walking toward the mountains.
+It reads like burnout, detachment, and the urge to reset — which is why it spread everywhere.
           </div>
           <div class="actions">
             <button class="copyBtn" data-copy="#cap1" aria-label="Copy caption">Copy caption</button>
@@ -566,11 +597,11 @@ Burnout? reset? choosing chaos? you decide.
           <ul class="sources">
             <li>
               <a href="https://www.hindustantimes.com/world-news/what-is-viral-nihilist-penguin-trend-on-social-media-that-even-trump-has-joined-101769242805293.html"
-                 target="_blank" rel="noopener">Hindustan Times</a>
+                 target="_blank" rel="noopener">Hindustan Times — explainer</a>
             </li>
             <li>
               <a href="https://www.telegraphindia.com/world/white-house-posts-image-of-donald-trump-and-penguin-cue-for-hilarious-fun-in-comments-section/cid/2144206"
-                 target="_blank" rel="noopener">The Telegraph</a>
+                 target="_blank" rel="noopener">The Telegraph — coverage of the boost</a>
             </li>
           </ul>
         </details>
@@ -582,9 +613,7 @@ Burnout? reset? choosing chaos? you decide.
         <h2>Archive</h2>
         <div class="metaLine">Soon</div>
       </div>
-      <p class="metaLine" style="margin:0;">
-        Older entries will live here.
-      </p>
+      <p class="metaLine" style="margin:0;">Older entries will live here.</p>
     </section>
 
     <footer>
@@ -592,6 +621,7 @@ Burnout? reset? choosing chaos? you decide.
     </footer>
   </main>
 
+  <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <div class="lbInner">
       <button class="lbClose" id="lbClose" type="button">Close ✕</button>
@@ -600,12 +630,14 @@ Burnout? reset? choosing chaos? you decide.
   </div>
 
   <script>
+    // Last updated (auto)
     (function(){
       const el = document.getElementById("lastUpdated");
       const d = new Date(document.lastModified);
       el.textContent = d.toLocaleDateString(undefined, { year:"numeric", month:"short", day:"2-digit" });
     })();
 
+    // Copy caption
     (function () {
       const toast = document.getElementById("toast");
       document.querySelectorAll("[data-copy]").forEach(btn => {
@@ -631,6 +663,7 @@ Burnout? reset? choosing chaos? you decide.
       });
     })();
 
+    // Lightbox zoom
     (function(){
       const lb = document.getElementById("lightbox");
       const lbImg = document.getElementById("lbImg");
