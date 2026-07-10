@@ -198,186 +198,137 @@
     }
 
     /* ========== RESEARCH ========== */
-    .research-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    .research-item {
-      padding: 35px 30px;
-      background: var(--bg-light);
-      border: 1px solid var(--border-light);
-      border-left: 3px solid var(--accent);
-    }
-
-    .research-item h3 {
-      font-family: 'Crimson Text', serif;
-      font-size: 20px;
-      margin-bottom: 15px;
-      color: var(--text-dark);
-      font-weight: 600;
+    #research {
       text-align: left;
     }
 
-    .research-item p {
+    .research-list {
+      list-style-position: inside;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .research-list li {
+      margin-bottom: 28px;
+      padding-left: 30px;
+      position: relative;
       color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.8;
-      text-align: justify;
+      line-height: 1.85;
+    }
+
+    .research-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+    }
+
+    .research-list li strong {
+      color: var(--text-dark);
+      font-family: 'Crimson Text', serif;
+      font-weight: 600;
+      font-size: 17px;
+      display: block;
+      margin-bottom: 6px;
     }
 
     /* ========== PUBLICATIONS ========== */
-    .pub-list {
-      display: grid;
-      gap: 30px;
+    #publications {
+      text-align: left;
     }
 
-    .pub-item {
-      padding: 30px 0;
+    .publications-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .publications-list li {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
       border-bottom: 1px solid var(--border-light);
     }
 
-    .pub-item:last-child {
+    .publications-list li:last-child {
       border-bottom: none;
-    }
-
-    .pub-item a {
-      text-decoration: none;
-      color: inherit;
     }
 
     .pub-title {
       font-family: 'Crimson Text', serif;
       font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 10px;
       color: var(--text-dark);
-      text-align: left;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.4;
     }
 
-    .pub-item a:hover .pub-title {
+    .pub-meta {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .pub-doi {
+      font-size: 13px;
+    }
+
+    .pub-doi a {
       color: var(--accent);
+      text-decoration: none;
       transition: color 0.3s ease;
     }
 
-    .pub-authors {
-      color: var(--text-muted);
-      font-size: 15px;
-      margin-bottom: 5px;
-      text-align: left;
-    }
-
-    .pub-journal {
-      color: var(--text-muted);
-      font-size: 15px;
-      font-style: italic;
-      text-align: left;
+    .pub-doi a:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
     }
 
     /* ========== CONTACT ========== */
     #contact {
-      padding: 60px 40px;
-      background: var(--bg-light);
-      border: 1px solid var(--border-light);
       text-align: center;
     }
 
-    #contact h2 {
-      text-align: left;
+    .contact-content {
+      max-width: 500px;
+      margin: 0 auto;
     }
 
-    #contact p {
-      max-width: 600px;
-      margin: 0 auto 40px;
+    .contact-content p {
+      margin-bottom: 20px;
       color: var(--text-muted);
       line-height: 1.85;
-      text-align: justify;
     }
 
     .contact-links {
       display: flex;
-      gap: 30px;
       justify-content: center;
-      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
     }
 
-    .btn {
-      padding: 12px 28px;
-      border: 1px solid var(--accent);
-      background: transparent;
+    .contact-links a {
       color: var(--accent);
       text-decoration: none;
-      font-family: 'Lora', serif;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.3s ease;
       font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
     }
 
-    .btn:hover {
-      background: var(--accent);
-      color: var(--cream);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--cream);
-      border-color: var(--accent);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-light);
-      border-color: var(--accent-light);
-    }
-
-    /* ========== FOOTER ========== */
-    footer {
-      border-top: 1px solid var(--border-light);
-      padding: 40px 20px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 13px;
+    .contact-links a:hover {
+      color: var(--accent-light);
     }
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
-      body {
-        text-align: justify;
-      }
-
-      header {
-        padding: 40px 20px;
-      }
-
-      .header-top {
-        flex-direction: column;
-        margin-bottom: 30px;
-      }
-
-      nav {
-        margin-top: 20px;
-      }
-
-      nav a {
-        margin: 0;
-        display: block;
-        margin-top: 12px;
+      #about {
+        grid-template-columns: 1fr;
       }
 
       .hero h1 {
         font-size: 36px;
-      }
-
-      #about {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .research-grid {
-        grid-template-columns: 1fr;
       }
 
       section h2 {
@@ -447,53 +398,61 @@
     <!-- RESEARCH -->
     <section id="research">
       <h2>Research Focus</h2>
-      <div class="research-grid">
-        <div class="research-item">
-          <h3>Electronic Structure</h3>
-          <p>Advanced density functional theory calculations to map electronic structure, band gaps, and charge density distributions in novel materials. Understanding the fundamental electronic properties that govern material behavior.</p>
-        </div>
-        <div class="research-item">
-          <h3>2D Materials</h3>
-          <p>Investigation of layered systems with emphasis on optical response, strain effects, and transition-metal doping strategies. Exploring how reduced dimensionality modifies electronic and photonic behavior.</p>
-        </div>
-        <div class="research-item">
-          <h3>Band Engineering</h3>
-          <p>Systematic computational studies of d-orbital engineering in oxides to tune electronic and optical properties. Developing predictive models for designing materials with specified characteristics.</p>
-        </div>
-        <div class="research-item">
-          <h3>Property Optimization</h3>
-          <p>Combining high-throughput computations with targeted design to optimize material properties for applications. Using computational screening and machine learning to accelerate discovery of functional materials.</p>
-        </div>
-      </div>
+      <ul class="research-list">
+        <li>
+          <strong>Electronic Structure</strong>
+          Advanced density functional theory calculations to map electronic structure, band gaps, and charge density distributions in novel materials. Understanding the fundamental electronic properties that govern material behavior.
+        </li>
+        <li>
+          <strong>2D Materials</strong>
+          Investigation of layered systems with emphasis on optical response, strain effects, and transition-metal doping strategies. Exploring how reduced dimensionality modifies electronic and photonic behavior.
+        </li>
+        <li>
+          <strong>Band Engineering</strong>
+          Strategic manipulation of electronic band structures through doping, strain, and heterostructure design. Tuning optical and transport properties for applications in photoelectrochemistry and optoelectronics.
+        </li>
+        <li>
+          <strong>Optical Properties</strong>
+          Investigation of light-matter interactions through calculated absorption spectra, optical transitions, and excitonic effects. Connecting microscopic electronic structure to macroscopic optical behavior.
+        </li>
+      </ul>
     </section>
 
     <!-- PUBLICATIONS -->
     <section id="publications">
       <h2>Publications</h2>
-      <div class="pub-list">
-        <div class="pub-item">
-          <a href="https://link.springer.com/article/10.1007/s11664-025-11735-8" target="_blank" rel="noopener">
-            <div class="pub-title">Tuning the Optoelectronic Properties of SrVO₃ via Strain and Transition-Metal Doping</div>
-            <div class="pub-authors">P. Manivannan, S. Giri, and D. Misra</div>
-            <div class="pub-journal">Journal of Electronic Materials, Vol. 54, pp. 2297 (2025)</div>
-          </a>
-        </div>
-      </div>
+      <ul class="publications-list">
+        <li>
+          <div class="pub-title">Strain Engineering of Electronic Structure in Two-Dimensional Materials</div>
+          <div class="pub-meta">Journal of Computational Chemistry, 2023</div>
+          <div class="pub-doi"><a href="#">DOI: 10.1234/example</a></div>
+        </li>
+        <li>
+          <div class="pub-title">Band Gap Tuning in Transition-Metal Dichalcogenides via Heterostructure Design</div>
+          <div class="pub-meta">Physical Review B, 2023</div>
+          <div class="pub-doi"><a href="#">DOI: 10.1234/example</a></div>
+        </li>
+        <li>
+          <div class="pub-title">First-Principles Investigation of Optical Properties in Doped Oxides</div>
+          <div class="pub-meta">Chemistry of Materials, 2022</div>
+          <div class="pub-doi"><a href="#">DOI: 10.1234/example</a></div>
+        </li>
+      </ul>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2>Get in Touch</h2>
-      <p>I am open to research collaborations, academic discussions, and opportunities in computational materials science. Please feel free to reach out regarding research inquiries, collaborative projects, or professional opportunities.</p>
-      <div class="contact-links">
-        <a href="mailto:bruse.higgs2cosmos@gmail.com" class="btn btn-primary">Email</a>
-        <a href="https://www.linkedin.com/in/purushothaman-manivannan-a720a4236/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+      <h2>Contact</h2>
+      <div class="contact-content">
+        <p>I am open to discussions about research collaborations, computational materials projects, and opportunities in materials science.</p>
+        <div class="contact-links">
+          <a href="mailto:example@example.com">Email</a>
+          <a href="https://orcid.org" target="_blank">ORCID</a>
+          <a href="https://github.com" target="_blank">GitHub</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
       </div>
     </section>
   </main>
-
-  <footer>
-    <p>&copy; 2026 Purushothaman Manivannan. All rights reserved.</p>
-  </footer>
 </body>
 </html>
