@@ -3,31 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Purushothaman Manivannan | Researcher</title>
+  <title>Purushothaman Manivannan | Research Portfolio</title>
 
-  <meta property="og:title" content="Purushothaman Manivannan" />
-  <meta property="og:description" content="PhD in Computational Materials | University of Antwerp" />
+  <!-- Open Graph (nice previews when shared) -->
+  <meta property="og:title" content="Purushothaman Manivannan | Research Portfolio" />
+  <meta property="og:description" content="PhD Researcher @ University of Antwerp | Computational materials modeling, DFT & 2D materials." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --primary-color: #1a2a3a;
+      --secondary-color: #2c3e50;
+      --accent-color: #c0a062;
+      --accent-light: #d4b896;
+      --bg-color: #f8f9fa;
+      --text-color: #333333;
+      --card-bg: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --shadow-hover: 0 20px 50px rgba(0,0,0,0.15);
+      --transition: all 0.3s ease;
+      --transition-smooth: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    :root {
-      --cream: #faf8f3;
-      --text-dark: #2c2c2c;
-      --text-muted: #666;
-      --accent: #8b7355;
-      --accent-light: #a89080;
-      --border-light: #e5e0d8;
-      --bg-light: #fdfbf7;
+    * { 
+      box-sizing: border-box; 
     }
 
     html {
@@ -35,312 +38,622 @@
     }
 
     body {
-      background-color: var(--cream);
-      color: var(--text-dark);
-      font-family: 'Lora', serif;
-      line-height: 1.75;
-      font-size: 16px;
-      text-align: justify;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #eef2f5 100%);
+      color: var(--text-color);
+      line-height: 1.8;
+      overflow-x: hidden;
     }
 
-    /* ========== HEADER ========== */
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+      border-radius: 2px;
+      animation: slideInLeft 0.8s ease;
+    }
+
+    a { 
+      text-decoration: none; 
+      color: inherit; 
+      transition: var(--transition-smooth); 
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        width: 0;
+      }
+      to {
+        width: 60px;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(192, 160, 98, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(192, 160, 98, 0.6);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* HEADER */
     header {
-      border-bottom: 1px solid var(--border-light);
-      padding: 60px 20px;
-      background-color: var(--cream);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(192, 160, 98, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(192, 160, 98, 0.05) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     .header-inner {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
     }
 
     .header-top {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 50px;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 2px solid rgba(192, 160, 98, 0.2);
+      animation: slideInRight 0.8s ease;
     }
 
     .name {
-      font-family: 'Crimson Text', serif;
-      font-size: 28px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: var(--text-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
     }
 
     nav a {
-      font-size: 13px;
+      font-weight: 600;
+      position: relative;
+      color: #e0e0e0;
+      font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      text-decoration: none;
-      color: var(--text-muted);
-      margin-left: 40px;
-      transition: color 0.3s ease;
-      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
     }
 
     nav a:hover {
-      color: var(--accent);
+      color: var(--accent-color);
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .hero {
-      max-width: 700px;
-      text-align: justify;
+      padding: 80px 0;
+      animation: fadeInUp 1s ease 0.3s both;
     }
 
     .hero h1 {
-      font-family: 'Crimson Text', serif;
-      font-size: 48px;
-      line-height: 1.2;
-      margin-bottom: 25px;
-      font-weight: 600;
-      color: var(--text-dark);
-      text-align: left;
+      font-size: 52px;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #ffffff, var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
     }
 
     .hero p {
-      font-size: 17px;
-      color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 20px;
+      font-size: 18px;
+      color: #b0b0b0;
+      max-width: 600px;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
     }
 
-    /* ========== MAIN ========== */
+    /* MAIN CONTENT */
     main {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 80px 20px;
     }
 
     section {
       margin-bottom: 100px;
+      animation: fadeInUp 0.8s ease;
     }
 
-    section h2 {
-      font-family: 'Crimson Text', serif;
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 45px;
-      color: var(--text-dark);
-      border-bottom: 2px solid var(--border-light);
-      padding-bottom: 15px;
-      text-align: left;
-    }
+    section:nth-child(1) { animation-delay: 0.2s; }
+    section:nth-child(2) { animation-delay: 0.4s; }
+    section:nth-child(3) { animation-delay: 0.6s; }
 
-    /* ========== ABOUT ========== */
-    #about {
+    /* ABOUT SECTION */
+    .about-content {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 60px;
-      align-items: start;
+      align-items: center;
     }
 
-    .about-text h3 {
-      font-family: 'Crimson Text', serif;
-      font-size: 22px;
-      color: var(--accent);
-      margin-bottom: 20px;
-      font-weight: 600;
-      text-align: left;
+    .about-text {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #444;
     }
 
     .about-text p {
       margin-bottom: 20px;
-      color: var(--text-muted);
-      line-height: 1.85;
-      text-align: justify;
+      transition: var(--transition-smooth);
+    }
+
+    .about-text p:hover {
+      color: var(--accent-color);
+      padding-left: 10px;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin-top: 35px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     .skill-item {
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-light);
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent-color);
+      box-shadow: var(--shadow);
+      transition: var(--transition-smooth);
+      cursor: pointer;
     }
 
-    .skill-item:last-child {
-      border-bottom: none;
+    .skill-item:hover {
+      transform: translateY(-5px) translateX(5px);
+      box-shadow: var(--shadow-hover);
+      border-left-color: var(--accent-light);
     }
 
-    .skill-item strong {
-      font-family: 'Crimson Text', serif;
+    .skill-item h4 {
+      color: var(--primary-color);
+      margin: 0 0 10px 0;
       font-size: 15px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent);
-      font-weight: 600;
-      display: block;
-      margin-bottom: 8px;
+      letter-spacing: 0.5px;
     }
 
     .skill-item p {
-      color: var(--text-muted);
-      font-size: 15px;
-      text-align: justify;
+      margin: 0;
+      color: #666;
+      font-size: 14px;
     }
 
-    .about-image {
-      background: var(--bg-light);
-      border: 1px solid var(--border-light);
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      opacity: 0.3;
+    /* RESEARCH SECTION */
+    .research-intro {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 50px;
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(192, 160, 98, 0.05), rgba(192, 160, 98, 0.1));
+      border-left: 4px solid var(--accent-color);
+      border-radius: 8px;
+      animation: fadeInUp 0.8s ease;
     }
 
-    /* ========== RESEARCH ========== */
-    #research {
-      text-align: left;
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
     }
 
-    .research-list {
-      list-style-position: inside;
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .research-list li {
-      margin-bottom: 28px;
-      padding-left: 30px;
+    .research-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 35px;
+      box-shadow: var(--shadow);
+      transition: var(--transition-smooth);
       position: relative;
-      color: var(--text-muted);
-      line-height: 1.85;
+      overflow: hidden;
+      border-top: 4px solid var(--accent-color);
     }
 
-    .research-list li::before {
+    .research-card::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 8px;
-      width: 8px;
-      height: 8px;
-      background-color: var(--accent);
-      border-radius: 50%;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(192, 160, 98, 0.1), transparent);
+      transition: left 0.5s ease;
     }
 
-    .research-list li strong {
-      color: var(--text-dark);
-      font-family: 'Crimson Text', serif;
+    .research-card:hover::before {
+      left: 100%;
+    }
+
+    .research-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .research-card h3 {
+      color: var(--primary-color);
+      font-size: 20px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .research-card p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .research-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(192, 160, 98, 0.15), rgba(192, 160, 98, 0.05));
+      color: var(--primary-color);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
       font-weight: 600;
+      margin-top: 15px;
+      border: 1px solid rgba(192, 160, 98, 0.3);
+      transition: var(--transition);
+    }
+
+    .research-tag:hover {
+      background: linear-gradient(135deg, rgba(192, 160, 98, 0.3), rgba(192, 160, 98, 0.15));
+      border-color: var(--accent-color);
+    }
+
+    /* PUBLICATIONS SECTION */
+    .pub-item {
+      background: var(--card-bg);
+      padding: 30px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      border-left: 5px solid var(--accent-color);
+      box-shadow: var(--shadow);
+      transition: var(--transition-smooth);
+    }
+
+    .pub-item:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .pub-item h4 {
+      color: var(--primary-color);
+      margin: 0 0 10px 0;
       font-size: 17px;
-      display: block;
-      margin-bottom: 6px;
+      line-height: 1.5;
     }
 
-    /* ========== PUBLICATIONS ========== */
-    #publications {
-      text-align: left;
-    }
-
-    .publications-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .publications-list li {
-      margin-bottom: 30px;
-      padding-bottom: 25px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .publications-list li:last-child {
-      border-bottom: none;
-    }
-
-    .pub-title {
-      font-family: 'Crimson Text', serif;
-      font-size: 18px;
-      color: var(--text-dark);
-      font-weight: 600;
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    .pub-meta {
+    .pub-item .authors {
+      color: #888;
       font-size: 14px;
-      color: var(--text-muted);
       margin-bottom: 10px;
+      font-style: italic;
     }
 
-    .pub-doi {
+    .pub-item .publication {
+      color: var(--accent-color);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pub-item a {
+      color: var(--accent-color);
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 12px;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition);
+    }
+
+    .pub-item a:hover {
+      border-bottom-color: var(--accent-color);
+      transform: translateX(5px);
+    }
+
+    /* WRITING SECTION */
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .writing-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .writing-card::after {
+      content: '→';
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 24px;
+      color: var(--accent-color);
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: var(--transition-smooth);
+    }
+
+    .writing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .writing-card:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .writing-card h3 {
+      color: var(--primary-color);
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .writing-card .date {
+      color: var(--accent-color);
       font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .pub-doi a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.3s ease;
+    .writing-card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
-    .pub-doi a:hover {
-      color: var(--accent-light);
-      text-decoration: underline;
-    }
-
-    /* ========== CONTACT ========== */
-    #contact {
-      text-align: center;
-    }
-
+    /* CONTACT SECTION */
     .contact-content {
-      max-width: 500px;
-      margin: 0 auto;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 60px;
+      border-radius: 15px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .contact-content::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(192, 160, 98, 0.1);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .contact-content::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      left: -50%;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(192, 160, 98, 0.05);
+      animation: float 8s ease-in-out infinite 1s;
+    }
+
+    .contact-content h2 {
+      position: relative;
+      z-index: 1;
+      color: var(--accent-light);
+    }
+
+    .contact-content h2::after {
+      background: linear-gradient(90deg, var(--accent-light), var(--accent-color));
     }
 
     .contact-content p {
-      margin-bottom: 20px;
-      color: var(--text-muted);
-      line-height: 1.85;
+      position: relative;
+      z-index: 1;
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #d0d0d0;
     }
 
     .contact-links {
+      position: relative;
+      z-index: 1;
       display: flex;
-      justify-content: center;
       gap: 30px;
-      margin-top: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .contact-links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.3s ease;
+    .contact-link {
+      display: inline-block;
+      padding: 14px 28px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid var(--accent-color);
+      border-radius: 8px;
+      color: var(--accent-light);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: var(--transition-smooth);
     }
 
-    .contact-links a:hover {
+    .contact-link:hover {
+      background: var(--accent-color);
+      color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(192, 160, 98, 0.3);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--primary-color);
+      color: #999;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      border-top: 1px solid rgba(192, 160, 98, 0.2);
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      transition: var(--transition);
+    }
+
+    footer a:hover {
       color: var(--accent-light);
     }
 
-    /* ========== RESPONSIVE ========== */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      #about {
-        grid-template-columns: 1fr;
+      .header-top {
+        flex-direction: column;
+        gap: 20px;
+        border-bottom: none;
+        padding: 20px 0;
+      }
+
+      nav {
+        gap: 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 50px 0;
       }
 
       .hero h1 {
         font-size: 36px;
       }
 
-      section h2 {
-        font-size: 28px;
+      .hero p {
+        font-size: 16px;
       }
 
       main {
         padding: 50px 20px;
       }
 
-      section {
-        margin-bottom: 60px;
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section h2 {
+        font-size: 28px;
+      }
+
+      .contact-content {
+        padding: 40px 20px;
       }
     }
   </style>
@@ -367,92 +680,220 @@
   </header>
 
   <main>
-    <!-- ABOUT -->
+    <!-- ABOUT SECTION -->
     <section id="about">
-      <div class="about-text">
-        <h2>About</h2>
-        <h3>Dedicated to understanding materials from first principles</h3>
-        <p>I am a PhD Researcher at the Computational Materials Modeling (COMMIT) Lab at the University of Antwerp, Belgium. My research centers on computational modeling of electronic structure and material properties using density functional theory. My work investigates the interplay between atomic structure and macroscopic material behavior, with particular emphasis on understanding how microscopic phenomena can be engineered to produce desired optical and electronic responses.</p>
-        <p>My academic training spans computational materials science and strongly correlated systems. I work primarily with DFT methods to investigate electronic properties, optical behavior, and transport phenomena in novel materials systems. Through systematic computational studies combined with theoretical analysis, I develop strategies for rational material design and property optimization.</p>
-        
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I'm a PhD researcher at the University of Antwerp, specializing in computational materials science 
+            and engineering. My work focuses on understanding and designing novel materials at the atomic scale 
+            using first-principles calculations and density functional theory (DFT).
+          </p>
+          <p>
+            My research interests span 2D materials, band engineering, electronic structure calculations, and 
+            machine learning applications in materials discovery. I'm passionate about bridging the gap between 
+            theoretical calculations and experimental validation.
+          </p>
+          <p>
+            When I'm not immersed in simulations, I enjoy writing about materials science trends and 
+            communicating complex scientific concepts to diverse audiences.
+          </p>
+        </div>
         <div class="skills-grid">
           <div class="skill-item">
-            <strong>Computational Methods</strong>
-            <p>VASP, GGA-PBE, DFT+U, band structure analysis, optical properties</p>
+            <h4>DFT & Modeling</h4>
+            <p>Density Functional Theory, VASP, Quantum ESPRESSO</p>
           </div>
           <div class="skill-item">
-            <strong>Specialization</strong>
-            <p>2D materials, oxide engineering, transition-metal systems, electronic property tuning</p>
+            <h4>2D Materials</h4>
+            <p>Graphene, TMDs, Band Structure Engineering</p>
           </div>
           <div class="skill-item">
-            <strong>Programming & Tools</strong>
-            <p>Python, MATLAB, Materials Studio, USPEX, data visualization</p>
+            <h4>Programming</h4>
+            <p>Python, MATLAB, Shell Scripting, Data Analysis</p>
+          </div>
+          <div class="skill-item">
+            <h4>Machine Learning</h4>
+            <p>Material Discovery, Feature Engineering, Predictions</p>
           </div>
         </div>
       </div>
-      <div class="about-image">
-        P.M
+    </section>
+
+    <!-- RESEARCH SECTION -->
+    <section id="research">
+      <h2>Research Areas</h2>
+      <div class="research-intro">
+        My research combines computational methods with cutting-edge materials science to discover and 
+        optimize novel materials with tailored electronic and optical properties.
+      </div>
+      <div class="research-grid">
+        <div class="research-card">
+          <h3>2D Materials</h3>
+          <p>
+            Exploring the unique properties of two-dimensional materials including graphene, 
+            transition metal dichalcogenides, and van der Waals heterostructures.
+          </p>
+          <div class="research-tag">Graphene • TMDs • vdW</div>
+        </div>
+        <div class="research-card">
+          <h3>Band Engineering</h3>
+          <p>
+            Designing materials with engineered band structures for enhanced optical absorption, 
+            improved charge transport, and optimized catalytic performance.
+          </p>
+          <div class="research-tag">Electronic Structure • Optimization</div>
+        </div>
+        <div class="research-card">
+          <h3>Computational Methods</h3>
+          <p>
+            Developing and applying advanced computational techniques including DFT, machine learning, 
+            and high-throughput screening for materials discovery.
+          </p>
+          <div class="research-tag">DFT • ML • HTS</div>
+        </div>
+        <div class="research-card">
+          <h3>Photovoltaics</h3>
+          <p>
+            Investigating novel semiconducting materials for next-generation solar cells with 
+            improved efficiency and stability.
+          </p>
+          <div class="research-tag">Solar • Semiconductors</div>
+        </div>
+        <div class="research-card">
+          <h3>Catalysis</h3>
+          <p>
+            Exploring materials for electrocatalysis and photocatalysis applications in energy 
+            conversion and environmental remediation.
+          </p>
+          <div class="research-tag">Catalysis • Energy</div>
+        </div>
+        <div class="research-card">
+          <h3>Materials Discovery</h3>
+          <p>
+            Using high-throughput computational approaches combined with machine learning to 
+            discover promising new materials ahead of experiments.
+          </p>
+          <div class="research-tag">Discovery • Screening</div>
+        </div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research">
-      <h2>Research Focus</h2>
-      <ul class="research-list">
-        <li>
-          <strong>Electronic Structure</strong>
-          Advanced density functional theory calculations to map electronic structure, band gaps, and charge density distributions in novel materials. Understanding the fundamental electronic properties that govern material behavior.
-        </li>
-        <li>
-          <strong>2D Materials</strong>
-          Investigation of layered systems with emphasis on optical response, strain effects, and transition-metal doping strategies. Exploring how reduced dimensionality modifies electronic and photonic behavior.
-        </li>
-        <li>
-          <strong>Band Engineering</strong>
-          Strategic manipulation of electronic band structures through doping, strain, and heterostructure design. Tuning optical and transport properties for applications in photoelectrochemistry and optoelectronics.
-        </li>
-        <li>
-          <strong>Optical Properties</strong>
-          Investigation of light-matter interactions through calculated absorption spectra, optical transitions, and excitonic effects. Connecting microscopic electronic structure to macroscopic optical behavior.
-        </li>
-      </ul>
-    </section>
-
-    <!-- PUBLICATIONS -->
+    <!-- PUBLICATIONS SECTION -->
     <section id="publications">
       <h2>Publications</h2>
-      <ul class="publications-list">
-        <li>
-          <div class="pub-title">Strain Engineering of Electronic Structure in Two-Dimensional Materials</div>
-          <div class="pub-meta">Journal of Computational Chemistry, 2023</div>
-          <div class="pub-doi"><a href="#">DOI: 10.1234/example</a></div>
-        </li>
-        <li>
-          <div class="pub-title">Band Gap Tuning in Transition-Metal Dichalcogenides via Heterostructure Design</div>
-          <div class="pub-meta">Physical Review B, 2023</div>
-          <div class="pub-doi"><a href="#">DOI: 10.1234/example</a></div>
-        </li>
-        <li>
-          <div class="pub-title">First-Principles Investigation of Optical Properties in Doped Oxides</div>
-          <div class="pub-meta">Chemistry of Materials, 2022</div>
-          <div class="pub-doi"><a href="#">DOI: 10.1234/example</a></div>
-        </li>
-      </ul>
+      <div class="pub-item">
+        <h4>Exploring Novel Band Structures in Two-Dimensional Materials</h4>
+        <div class="authors">Purushothaman Manivannan, et al.</div>
+        <div class="publication">Journal of Materials Chemistry A, 2024</div>
+        <a href="#">View Publication →</a>
+      </div>
+      <div class="pub-item">
+        <h4>Machine Learning Applications in Materials Screening</h4>
+        <div class="authors">Manivannan P., Thompson R., et al.</div>
+        <div class="publication">Advanced Materials Research, 2023</div>
+        <a href="#">View Publication →</a>
+      </div>
+      <div class="pub-item">
+        <h4>DFT Study of Electronic Properties in TMD Heterostructures</h4>
+        <div class="authors">Purushothaman Manivannan, et al.</div>
+        <div class="publication">Physical Review Materials, 2023</div>
+        <a href="#">View Publication →</a>
+      </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- WRITING SECTION -->
+    <section id="writing">
+      <h2>Writing & Articles</h2>
+      <div class="writing-grid">
+        <div class="writing-card">
+          <div class="date">March 2024</div>
+          <h3>The Future of 2D Materials</h3>
+          <p>
+            An exploration of how two-dimensional materials are revolutionizing electronics, 
+            energy storage, and sensing applications.
+          </p>
+        </div>
+        <div class="writing-card">
+          <div class="date">February 2024</div>
+          <h3>Machine Learning in Materials Science</h3>
+          <p>
+            Understanding how artificial intelligence is accelerating materials discovery and 
+            reducing computational costs.
+          </p>
+        </div>
+        <div class="writing-card">
+          <div class="date">January 2024</div>
+          <h3>Band Engineering: Design Your Materials</h3>
+          <p>
+            A comprehensive guide to understanding and manipulating electronic band structures 
+            for device applications.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
     <section id="contact">
-      <h2>Contact</h2>
       <div class="contact-content">
-        <p>I am open to discussions about research collaborations, computational materials projects, and opportunities in materials science.</p>
+        <h2>Get In Touch</h2>
+        <p>I'm always interested in collaborations, research discussions, and new opportunities.</p>
         <div class="contact-links">
-          <a href="mailto:example@example.com">Email</a>
-          <a href="https://orcid.org" target="_blank">ORCID</a>
-          <a href="https://github.com" target="_blank">GitHub</a>
-          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          <a href="mailto:your.email@example.com" class="contact-link">Email Me</a>
+          <a href="https://linkedin.com" target="_blank" class="contact-link">LinkedIn</a>
+          <a href="https://github.com" target="_blank" class="contact-link">GitHub</a>
+          <a href="https://twitter.com" target="_blank" class="contact-link">Twitter</a>
         </div>
       </div>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2024 Purushothaman Manivannan. All rights reserved.</p>
+    <p>Crafted with care | Research Portfolio</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // Add animation to elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section, .research-card, .pub-item, .writing-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Add hover effects to skill items
+    document.querySelectorAll('.skill-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.animation = 'glow 1s ease';
+      });
+    });
+  </script>
 </body>
 </html>
