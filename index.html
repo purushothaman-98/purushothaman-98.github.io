@@ -40,6 +40,7 @@
       font-family: 'Lora', serif;
       line-height: 1.75;
       font-size: 16px;
+      text-align: justify;
     }
 
     /* ========== HEADER ========== */
@@ -86,6 +87,7 @@
 
     .hero {
       max-width: 700px;
+      text-align: justify;
     }
 
     .hero h1 {
@@ -95,6 +97,7 @@
       margin-bottom: 25px;
       font-weight: 600;
       color: var(--text-dark);
+      text-align: left;
     }
 
     .hero p {
@@ -123,6 +126,7 @@
       color: var(--text-dark);
       border-bottom: 2px solid var(--border-light);
       padding-bottom: 15px;
+      text-align: left;
     }
 
     /* ========== ABOUT ========== */
@@ -139,12 +143,14 @@
       color: var(--accent);
       margin-bottom: 20px;
       font-weight: 600;
+      text-align: left;
     }
 
     .about-text p {
       margin-bottom: 20px;
       color: var(--text-muted);
       line-height: 1.85;
+      text-align: justify;
     }
 
     .skills-grid {
@@ -177,6 +183,7 @@
     .skill-item p {
       color: var(--text-muted);
       font-size: 15px;
+      text-align: justify;
     }
 
     .about-image {
@@ -210,12 +217,14 @@
       margin-bottom: 15px;
       color: var(--text-dark);
       font-weight: 600;
+      text-align: left;
     }
 
     .research-item p {
       color: var(--text-muted);
       font-size: 15px;
       line-height: 1.8;
+      text-align: justify;
     }
 
     /* ========== PUBLICATIONS ========== */
@@ -244,6 +253,7 @@
       font-weight: 600;
       margin-bottom: 10px;
       color: var(--text-dark);
+      text-align: left;
     }
 
     .pub-item a:hover .pub-title {
@@ -255,20 +265,26 @@
       color: var(--text-muted);
       font-size: 15px;
       margin-bottom: 5px;
+      text-align: left;
     }
 
     .pub-journal {
       color: var(--text-muted);
       font-size: 15px;
       font-style: italic;
+      text-align: left;
     }
 
     /* ========== CONTACT ========== */
     #contact {
-      text-align: center;
       padding: 60px 40px;
       background: var(--bg-light);
       border: 1px solid var(--border-light);
+      text-align: center;
+    }
+
+    #contact h2 {
+      text-align: left;
     }
 
     #contact p {
@@ -276,6 +292,7 @@
       margin: 0 auto 40px;
       color: var(--text-muted);
       line-height: 1.85;
+      text-align: justify;
     }
 
     .contact-links {
@@ -327,6 +344,10 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
+      body {
+        text-align: justify;
+      }
+
       header {
         padding: 40px 20px;
       }
@@ -400,8 +421,8 @@
       <div class="about-text">
         <h2>About</h2>
         <h3>Dedicated to understanding materials from first principles</h3>
-        <p>I am a PhD Researcher at the Computational Materials Modeling (COMMIT) Lab at the University of Antwerp, Belgium. My research centers on computational modeling of electronic structure and material properties using density functional theory.</p>
-        <p>My academic training spans computational materials science and strongly correlated systems. I work primarily with DFT methods to investigate electronic properties, optical behavior, and transport phenomena in novel materials systems.</p>
+        <p>I am a PhD Researcher at the Computational Materials Modeling (COMMIT) Lab at the University of Antwerp, Belgium. My research centers on computational modeling of electronic structure and material properties using density functional theory. My work investigates the interplay between atomic structure and macroscopic material behavior, with particular emphasis on understanding how microscopic phenomena can be engineered to produce desired optical and electronic responses.</p>
+        <p>My academic training spans computational materials science and strongly correlated systems. I work primarily with DFT methods to investigate electronic properties, optical behavior, and transport phenomena in novel materials systems. Through systematic computational studies combined with theoretical analysis, I develop strategies for rational material design and property optimization.</p>
         
         <div class="skills-grid">
           <div class="skill-item">
@@ -429,19 +450,19 @@
       <div class="research-grid">
         <div class="research-item">
           <h3>Electronic Structure</h3>
-          <p>Advanced density functional theory calculations to map electronic structure, band gaps, and charge density distributions in novel materials.</p>
+          <p>Advanced density functional theory calculations to map electronic structure, band gaps, and charge density distributions in novel materials. Understanding the fundamental electronic properties that govern material behavior.</p>
         </div>
         <div class="research-item">
           <h3>2D Materials</h3>
-          <p>Investigation of layered systems with emphasis on optical response, strain effects, and transition-metal doping strategies.</p>
+          <p>Investigation of layered systems with emphasis on optical response, strain effects, and transition-metal doping strategies. Exploring how reduced dimensionality modifies electronic and photonic behavior.</p>
         </div>
         <div class="research-item">
           <h3>Band Engineering</h3>
-          <p>Systematic computational studies of d-orbital engineering in oxides to tune electronic and optical properties.</p>
+          <p>Systematic computational studies of d-orbital engineering in oxides to tune electronic and optical properties. Developing predictive models for designing materials with specified characteristics.</p>
         </div>
         <div class="research-item">
           <h3>Property Optimization</h3>
-          <p>Combining high-throughput computations with targeted design to optimize material properties for applications.</p>
+          <p>Combining high-throughput computations with targeted design to optimize material properties for applications. Using computational screening and machine learning to accelerate discovery of functional materials.</p>
         </div>
       </div>
     </section>
@@ -462,8 +483,8 @@
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2 style="border: none; text-align: center; margin-bottom: 30px;">Get in Touch</h2>
-      <p>I am open to research collaborations, academic discussions, and opportunities in computational materials science.</p>
+      <h2>Get in Touch</h2>
+      <p>I am open to research collaborations, academic discussions, and opportunities in computational materials science. Please feel free to reach out regarding research inquiries, collaborative projects, or professional opportunities.</p>
       <div class="contact-links">
         <a href="mailto:bruse.higgs2cosmos@gmail.com" class="btn btn-primary">Email</a>
         <a href="https://www.linkedin.com/in/purushothaman-manivannan-a720a4236/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
