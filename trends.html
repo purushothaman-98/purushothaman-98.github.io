@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trending Notes | Purushothaman Manivannan</title>
+  <title>Writing | Purushothaman Manivannan</title>
 
-  <meta property="og:title" content="Trending Notes | Purushothaman Manivannan" />
-  <meta property="og:description" content="Internet culture explainers — trends, memes, and viral moments decoded." />
+  <meta property="og:title" content="Writing | Purushothaman Manivannan" />
+  <meta property="og:description" content="Essays on internet culture and contemporary phenomena" />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -21,17 +21,12 @@
     }
 
     :root {
-      --bg-dark: #0a0e27;
-      --bg-secondary: #111d3d;
-      --accent: #00d9ff;
-      --accent-alt: #ff006e;
-      --text-primary: #ffffff;
-      --text-secondary: #b0bec5;
-      --card-bg: #1a2847;
-      --border: #2a3f5f;
-      --gradient-1: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
-      --gradient-2: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
-      --gradient-3: linear-gradient(135deg, #0a0e27, #1a2847);
+      --cream: #faf8f3;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+      --accent: #8b7355;
+      --border-light: #e5e0d8;
+      --bg-light: #fdfbf7;
     }
 
     html {
@@ -39,463 +34,222 @@
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      font-family: 'Lora', serif;
+      line-height: 1.75;
+      font-size: 16px;
     }
 
     /* ========== HEADER ========== */
     header {
-      position: relative;
-      overflow: hidden;
-      padding: 60px 20px;
-      background: var(--gradient-3);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-light);
+      padding: 60px 20px 50px;
+      background-color: var(--cream);
     }
 
-    header::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -15%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255, 0, 110, 0.15), transparent);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: float 15s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(20px); }
-    }
-
-    .header-content {
-      max-width: 1200px;
+    .header-inner {
+      max-width: 900px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
     }
 
-    .top-nav {
+    .header-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 50px;
-      flex-wrap: wrap;
-      gap: 20px;
     }
 
-    .logo {
-      font-family: 'Space Grotesk', sans-serif;
+    .site-title a {
+      font-family: 'Crimson Text', serif;
       font-size: 20px;
-      font-weight: 700;
-      background: var(--gradient-2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -1px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
+      font-weight: 600;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
+      color: var(--text-dark);
+      letter-spacing: 0.5px;
     }
 
-    .nav-links a:hover {
+    nav a {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      color: var(--text-muted);
+      margin-left: 35px;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover {
       color: var(--accent);
     }
 
     .hero {
-      margin-bottom: 20px;
+      max-width: 700px;
     }
 
     .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 700;
-      margin-bottom: 15px;
-      letter-spacing: -1px;
-      line-height: 1.1;
+      font-family: 'Crimson Text', serif;
+      font-size: 42px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: var(--text-dark);
     }
 
     .hero p {
-      color: var(--text-secondary);
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .hero-badges {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: rgba(0, 217, 255, 0.1);
-      border: 1px solid rgba(0, 217, 255, 0.3);
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.8;
     }
 
     /* ========== MAIN ========== */
     main {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 80px 20px;
     }
 
-    .panel {
-      background: linear-gradient(135deg, rgba(26, 40, 71, 0.8), rgba(26, 40, 71, 0.4));
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 50px 40px;
-      margin-bottom: 80px;
+    section {
+      margin-bottom: 100px;
     }
 
-    .panel h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 42px;
-      font-weight: 700;
-      margin-bottom: 40px;
-      position: relative;
-      display: inline-block;
-      letter-spacing: -1px;
-    }
-
-    .panel h2::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: var(--gradient-1);
-      border-radius: 50px;
-    }
-
-    .panel-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-
-    .meta-line {
-      color: var(--text-secondary);
+    section h2 {
+      font-family: 'Crimson Text', serif;
+      font-size: 32px;
       font-weight: 600;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin-bottom: 50px;
+      color: var(--text-dark);
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 15px;
     }
 
-    /* ========== TREND CARD ========== */
-    .trend {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 16px;
-      padding: 40px;
-      transition: all 0.3s ease;
+    /* ========== ARTICLE ========== */
+    .article {
+      margin-bottom: 70px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid var(--border-light);
     }
 
-    .trend:hover {
-      border-color: var(--accent);
-      background: rgba(26, 40, 71, 0.9);
-      transform: translateY(-5px);
+    .article:last-of-type {
+      border-bottom: none;
     }
 
-    .trend-title {
-      margin-bottom: 20px;
-    }
-
-    .trend-title h3 {
-      font-family: 'Space Grotesk', sans-serif;
+    .article-title {
+      font-family: 'Crimson Text', serif;
       font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--accent);
-      line-height: 1.2;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--text-dark);
     }
 
-    .trend-meta {
-      color: var(--text-secondary);
-      font-weight: 500;
-      font-size: 15px;
+    .article-meta {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 25px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
     }
 
     .tag {
       display: inline-block;
-      margin-left: 12px;
       font-size: 12px;
-      font-weight: 700;
-      color: var(--accent-alt);
-      background: rgba(255, 0, 110, 0.1);
-      border: 1px solid rgba(255, 0, 110, 0.3);
-      padding: 6px 12px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .block {
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .block:first-of-type {
-      border-top: none;
-      padding-top: 0;
-      margin-top: 0;
-    }
-
-    .label {
-      display: block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 12px;
-      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 1px;
-    }
-
-    .block p {
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin: 0;
-    }
-
-    .block ul {
-      color: var(--text-secondary);
-      margin: 12px 0 0;
-      padding-left: 24px;
-      line-height: 1.8;
-    }
-
-    .block li {
-      margin: 10px 0;
-    }
-
-    .block strong {
       color: var(--accent);
-      font-weight: 600;
+      padding: 3px 10px;
+      border: 1px solid var(--accent);
+      border-radius: 3px;
     }
 
-    /* ========== IMAGE CARD ========== */
-    .img-card {
-      margin-top: 20px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
+    .article-excerpt {
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .article-excerpt strong {
+      color: var(--text-dark);
+    }
+
+    .image-container {
+      margin: 30px 0;
+      border: 1px solid var(--border-light);
       overflow: hidden;
-      background: var(--bg-dark);
-      transition: all 0.3s ease;
     }
 
-    .img-btn {
-      width: 100%;
-      border: none;
-      padding: 0;
-      margin: 0;
-      display: block;
-      cursor: zoom-in;
-      background: transparent;
-      position: relative;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .img-btn img {
+    .image-container img {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    .img-hint {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      font-weight: 700;
+    .image-caption {
+      padding: 15px 20px;
+      background: var(--bg-light);
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.9);
-      background: rgba(10, 18, 28, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 8px 12px;
-      border-radius: 50px;
-      backdrop-filter: blur(10px);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-light);
     }
 
-    .img-caption {
-      padding: 12px 16px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--border);
-      background: rgba(26, 40, 71, 0.5);
+    .zoom-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 5px;
     }
 
-    /* ========== DETAILS ========== */
-    details {
-      margin-top: 20px;
-      border-top: 1px solid var(--border);
-      padding-top: 16px;
+    .article-section {
+      margin: 30px 0;
     }
 
-    summary {
-      list-style: none;
-      cursor: pointer;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: '▾';
-      color: var(--accent);
+    .article-section h3 {
+      font-family: 'Crimson Text', serif;
       font-size: 18px;
-      transform: rotate(-90deg);
-      transition: transform 0.3s ease;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--text-dark);
+      border-left: 3px solid var(--accent);
+      padding-left: 15px;
     }
 
-    details[open] summary::after {
-      transform: rotate(0deg);
+    .article-section p {
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 15px;
     }
 
-    summary:hover {
-      color: var(--accent-alt);
+    .article-section ul {
+      margin: 15px 0 15px 30px;
+      color: var(--text-muted);
+      line-height: 1.85;
     }
 
-    /* ========== CAPTION BOX ========== */
-    .caption-box {
-      margin-top: 16px;
-      background: rgba(26, 40, 71, 0.6);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      white-space: pre-wrap;
-      color: var(--text-secondary);
-      font-family: 'Inter', monospace;
-      font-size: 14px;
-      line-height: 1.6;
+    .article-section li {
+      margin-bottom: 10px;
     }
 
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 12px;
+    .article-section strong {
+      color: var(--text-dark);
     }
 
-    .copy-btn {
-      appearance: none;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
+    .read-more {
       color: var(--accent);
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      min-height: 44px;
-      -webkit-tap-highlight-color: transparent;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    .copy-btn:hover {
-      border-color: var(--accent);
-      background: rgba(0, 217, 255, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .toast {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 13px;
-      min-height: 20px;
-    }
-
-    /* ========== SOURCES ========== */
-    .sources {
-      margin: 16px 0 0;
-      padding-left: 24px;
-      color: var(--text-secondary);
-      list-style: none;
-    }
-
-    .sources li {
-      margin: 12px 0;
-    }
-
-    .sources a {
-      font-weight: 700;
-      color: var(--accent);
-      border-bottom: 2px solid rgba(0, 217, 255, 0.3);
-      transition: all 0.3s ease;
       text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
     }
 
-    .sources a:hover {
-      color: var(--accent-alt);
-      border-bottom-color: rgba(255, 0, 110, 0.5);
-    }
-
-    /* ========== FOOTER ========== */
-    footer {
-      text-align: center;
-      color: var(--text-secondary);
-      padding: 40px 20px;
-      font-size: 14px;
-      border-top: 1px solid var(--border);
+    .read-more:hover {
+      opacity: 0.7;
     }
 
     /* ========== LIGHTBOX ========== */
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(10, 18, 28, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(44, 44, 44, 0.95);
       display: none;
       align-items: center;
       justify-content: center;
@@ -510,10 +264,7 @@
     .lb-inner {
       width: min(1000px, 100%);
       max-height: 90vh;
-      background: var(--bg-secondary);
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      box-shadow: 0 30px 80px rgba(0, 217, 255, 0.2);
+      background: var(--cream);
       overflow: hidden;
       position: relative;
     }
@@ -523,28 +274,38 @@
       height: 90vh;
       object-fit: contain;
       display: block;
-      background: var(--bg-dark);
     }
 
     .lb-close {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      border: 1px solid var(--border);
-      background: rgba(26, 40, 71, 0.8);
-      color: var(--accent);
-      border-radius: 50px;
-      padding: 10px 14px;
-      font-weight: 900;
+      top: 20px;
+      right: 25px;
+      background: var(--cream);
+      border: 1px solid var(--border-light);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      transition: all 0.3s ease;
-      -webkit-tap-highlight-color: transparent;
       font-size: 18px;
+      color: var(--text-dark);
+      border-radius: 50%;
+      transition: all 0.3s ease;
     }
 
     .lb-close:hover {
-      background: rgba(0, 217, 255, 0.1);
-      border-color: var(--accent);
+      background: var(--text-dark);
+      color: var(--cream);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      border-top: 1px solid var(--border-light);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
     }
 
     /* ========== RESPONSIVE ========== */
@@ -553,40 +314,36 @@
         padding: 40px 20px;
       }
 
-      .top-nav {
+      .header-top {
         flex-direction: column;
-        align-items: flex-start;
         margin-bottom: 30px;
+        align-items: flex-start;
       }
 
-      .nav-links {
-        gap: 12px;
-        font-size: 12px;
+      nav {
+        margin-top: 20px;
+      }
+
+      nav a {
+        margin: 0;
+        display: block;
+        margin-top: 10px;
       }
 
       .hero h1 {
         font-size: 32px;
       }
 
-      .panel {
-        padding: 30px 20px;
+      section h2 {
+        font-size: 26px;
       }
 
-      .trend {
-        padding: 24px;
-      }
-
-      .trend-title h3 {
+      .article-title {
         font-size: 22px;
       }
 
-      .copy-btn {
-        width: 100%;
-        justify-content: center;
-      }
-
       main {
-        padding: 40px 20px;
+        padding: 50px 20px;
       }
     }
   </style>
@@ -594,196 +351,114 @@
 
 <body>
   <header>
-    <div class="header-content">
-      <div class="top-nav">
-        <div class="logo">📊 Trending Notes</div>
-        <div class="nav-links">
-          <a href="index.html">← Back to Research</a>
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="site-title"><a href="index.html">← Back</a></div>
+        <nav>
+          <a href="index.html">About</a>
           <a href="#latest">Latest</a>
           <a href="#archive">Archive</a>
-        </div>
+        </nav>
       </div>
-
       <div class="hero">
-        <h1>What's Trending Online</h1>
-        <p>Internet moods, viral moments, and meme culture decoded — quick reads with context and captions ready to share.</p>
-        <div class="hero-badges">
-          <span class="badge">🎬 Current: Nihilist Penguin</span>
-          <span class="badge">📸 Tap images to zoom</span>
-        </div>
+        <h1>Writing</h1>
+        <p>Essays on internet culture, viral phenomena, and what they reveal about contemporary life.</p>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="panel" id="latest">
-      <div class="panel-head">
-        <h2>Latest</h2>
-        <div class="meta-line">Updated: <span id="lastUpdated">—</span></div>
-      </div>
+    <section id="latest">
+      <h2>Latest</h2>
 
-      <article class="trend">
-        <div class="trend-title">
-          <h3>
-            Nihilist Penguin
-            <span class="tag">Meme • Viral Clip</span>
-          </h3>
-          <div class="trend-meta">
-            From: <em>Encounters at the End of the World</em> (2007) • First noted: January 2026
+      <article class="article">
+        <div class="article-title">The Nihilist Penguin</div>
+        <div class="article-meta">
+          <span>January 2026</span>
+          <span class="tag">Internet Culture</span>
+        </div>
+
+        <div class="article-excerpt">
+          <strong>A 2007 documentary moment becomes a 2026 symbol of burnout.</strong> The story of how a quiet scene from Werner Herzog's <em>Encounters at the End of the World</em> entered the cultural lexicon as shorthand for exhaustion and the urge to reset.
+        </div>
+
+        <div class="image-container">
+          <img src="penguin-explainer.png" alt="Nihilist Penguin explainer infographic" onclick="openLightbox(this.src)" style="cursor: pointer;">
+          <div class="image-caption">
+            Explainer visual<br>
+            <span class="zoom-hint">Click to zoom</span>
           </div>
         </div>
 
-        <div class="img-card">
-          <button class="img-btn" type="button" data-lightbox-src="penguin-explainer.png" aria-label="Open image in full screen">
-            <img src="penguin-explainer.png" alt="Nihilist Penguin explainer infographic" loading="lazy" decoding="async">
-            <span class="img-hint">TAP TO ZOOM</span>
-          </button>
-          <div class="img-caption">Explainer visual — tap to view full screen</div>
-        </div>
-
-        <div class="block">
-          <span class="label">What It Is</span>
+        <div class="article-section">
+          <h3>What It Is</h3>
           <p>
-            A short scene from Werner Herzog's 2007 documentary <em>Encounters at the End of the World</em>.
-            A lone Adélie penguin leaves the colony and walks inland toward empty mountains instead of heading
-            to the sea. The moment is visually striking and emotionally open to interpretation, which makes it
-            endlessly remixable online.
+            A short scene from Werner Herzog's 2007 documentary <em>Encounters at the End of the World</em>. In the clip, a lone Adélie penguin leaves the colony and walks inland toward empty mountains rather than heading toward the sea. The moment is visually simple and emotionally open to interpretation, which is why it has kept getting reinterpreted.
           </p>
         </div>
 
-        <div class="block">
-          <span class="label">What It Means Online</span>
+        <div class="article-section">
+          <h3>What It Means Online</h3>
           <p>
-            The penguin has become a symbol for burnout, detachment, and quiet disengagement. It represents
-            "calmly walking away" from expectations, routines, and noise—not in a loud or dramatic way, but as
-            a mood. People use it to express exhaustion and the need for reset without irony or anger.
+            The penguin has become a symbol for burnout, detachment, and quiet disengagement. It represents "calmly walking away" from expectations, routines, and noise—not in a loud or dramatic way, but as a mood. People use it to express exhaustion and the need for reset without irony or anger.
           </p>
         </div>
 
-        <div class="block">
-          <span class="label">Why It's Trending Now</span>
+        <div class="article-section">
+          <h3>Why It's Trending Now</h3>
           <ul>
-            <li><strong>Rediscovery + Remix:</strong> Old documentary clips go viral when short edits perform well; recommendation feeds amplify them across platforms.</li>
-            <li><strong>Fits the Current Mood:</strong> The image of calmly walking away resonates with conversations about burnout, disconnection, and "reset."</li>
-            <li><strong>Political Boost:</strong> Official posts and mainstream coverage referenced the penguin (including in political contexts), taking it from niche to viral.</li>
+            <li><strong>Rediscovery + Remix:</strong> Old documentary clips resurface when short edits perform well; recommendation feeds then amplify them across platforms.</li>
+            <li><strong>Fits the Current Mood:</strong> The image of calmly walking away resonates with conversations about burnout, disconnection, and the desire to reset.</li>
+            <li><strong>Mainstream Adoption:</strong> Once official posts and news coverage referenced the penguin, it jumped from niche format to mainstream conversation.</li>
           </ul>
         </div>
 
-        <div class="block">
-          <span class="label">Why It Matters</span>
+        <div class="article-section">
+          <h3>Why It Matters</h3>
           <p>
-            It's a clear case of how the internet transforms archival media into shared emotional shorthand.
-            A quiet documentary moment becomes the language people use to describe modern stress, and that's why it spreads.
+            It's a clear example of how the internet transforms archival media into shared emotional language. A quiet, context-rich scene becomes shorthand for modern stress and disengagement, and that's why it spreads beyond meme circles into mainstream commentary.
           </p>
         </div>
-
-        <details>
-          <summary>💬 Share Caption</summary>
-          <div id="cap1" class="caption-box">
-A 2007 Herzog documentary moment turned into a 2026 symbol:
-a lone penguin leaving the crowd and walking toward the mountains.
-It reads like burnout, detachment, and the urge to reset — which is why it spread everywhere.
-          </div>
-          <div class="actions">
-            <button class="copy-btn" data-copy="#cap1" aria-label="Copy caption to clipboard">Copy Caption</button>
-            <span class="toast" id="toast"></span>
-          </div>
-        </details>
-
-        <details>
-          <summary>🔗 Sources & Links</summary>
-          <ul class="sources">
-            <li>
-              <a href="https://www.hindustantimes.com/world-news/what-is-viral-nihilist-penguin-trend-on-social-media-that-even-trump-has-joined-101769242805293.html"
-                 target="_blank" rel="noopener">Hindustan Times — Full explainer</a>
-            </li>
-            <li>
-              <a href="https://www.telegraphindia.com/world/white-house-posts-image-of-donald-trump-and-penguin-cue-for-hilarious-fun-in-comments-section/cid/2144206"
-                 target="_blank" rel="noopener">The Telegraph — Mainstream adoption coverage</a>
-            </li>
-          </ul>
-        </details>
       </article>
     </section>
 
-    <section class="panel" id="archive">
+    <section id="archive">
       <h2>Archive</h2>
-      <p class="meta-line" style="margin: 20px 0 0;">Older entries coming soon. Check back for more trending culture analysis.</p>
+      <p style="color: var(--text-muted);">More essays coming soon.</p>
     </section>
-
-    <footer>
-      &copy; 2026 Purushothaman Manivannan | Internet Culture Notes
-    </footer>
   </main>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lightbox" id="lightbox">
     <div class="lb-inner">
-      <button class="lb-close" id="lbClose" type="button" aria-label="Close image viewer">✕</button>
-      <img id="lbImg" alt="Expanded view" />
+      <button class="lb-close" onclick="closeLightbox()">&times;</button>
+      <img id="lbImg" alt="" />
     </div>
   </div>
 
+  <footer>
+    <p>&copy; 2026 Purushothaman Manivannan</p>
+  </footer>
+
   <script>
-    // Auto-update date
-    (function(){
-      const el = document.getElementById("lastUpdated");
-      const d = new Date(document.lastModified);
-      el.textContent = d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
-    })();
+    function openLightbox(src) {
+      document.getElementById('lbImg').src = src;
+      document.getElementById('lightbox').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
 
-    // Copy caption to clipboard
-    (function() {
-      const toast = document.getElementById("toast");
-      document.querySelectorAll("[data-copy]").forEach(btn => {
-        btn.addEventListener("click", async () => {
-          const sel = btn.getAttribute("data-copy");
-          const el = document.querySelector(sel);
-          if (!el) return;
-          const text = el.innerText.trim();
-          try {
-            await navigator.clipboard.writeText(text);
-            toast.textContent = "✓ Copied!";
-          } catch (e) {
-            const ta = document.createElement("textarea");
-            ta.value = text;
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand("copy");
-            document.body.removeChild(ta);
-            toast.textContent = "✓ Copied!";
-          }
-          setTimeout(() => (toast.textContent = ""), 1500);
-        });
-      });
-    })();
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('show');
+      document.body.style.overflow = '';
+    }
 
-    // Lightbox zoom
-    (function(){
-      const lb = document.getElementById("lightbox");
-      const lbImg = document.getElementById("lbImg");
-      const lbClose = document.getElementById("lbClose");
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
 
-      function openLB(src) {
-        lbImg.src = src;
-        lb.classList.add("show");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeLB() {
-        lb.classList.remove("show");
-        lbImg.src = "";
-        document.body.style.overflow = "";
-      }
-
-      document.querySelectorAll("[data-lightbox-src]").forEach(btn => {
-        btn.addEventListener("click", () => openLB(btn.dataset.lightboxSrc));
-      });
-
-      lbClose.addEventListener("click", closeLB);
-      lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
-    })();
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
