@@ -1,1 +1,9 @@
-.publication-list{display:grid;gap:18px}.pub-card{display:grid;grid-template-columns:92px 1fr;gap:25px;padding:27px;background:#fff;border:1px solid var(--line);border-radius:9px;box-shadow:0 8px 25px rgba(16,35,63,.05);transition:.25s ease}.pub-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.pub-year{color:var(--teal);font-size:25px;font-weight:700}.pub-card h2{margin:0 0 8px;color:var(--navy);font:21px/1.45 Georgia,serif}.pub-card p{margin:4px 0;color:var(--muted)}.pub-links{display:flex;flex-wrap:wrap;gap:15px;margin-top:12px;font-size:14px;font-weight:700}.scholar-box{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-bottom:32px;padding:24px 27px;background:linear-gradient(120deg,#eef5f8,#fff);border:1px solid var(--line);border-radius:9px}.scholar-box h2,.scholar-box p{margin:0}.scholar-box p{color:var(--muted)}@media(max-width:800px){.scholar-box{align-items:flex-start;flex-direction:column}.pub-card{grid-template-columns:1fr;gap:8px}}
+.publication-list{border-top:1px solid var(--line)}
+.pub-card{display:grid;grid-template-columns:72px 1fr;gap:22px;padding:24px 4px;border-bottom:1px solid var(--line)}
+.pub-year{padding-top:3px;color:var(--teal);font-size:16px;font-weight:700}
+.pub-card h2{max-width:900px;margin:0 0 6px;color:var(--navy);font:19px/1.45 Georgia,serif}
+.pub-card p{margin:3px 0;color:var(--muted);font-size:15px}
+.pub-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;font-size:13px;font-weight:700}
+.scholar-box{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-bottom:36px;padding:0 0 24px;border-bottom:1px solid var(--line)}
+.scholar-box h2,.scholar-box p{margin:0}.scholar-box p{color:var(--muted);font-size:15px}
+@media(max-width:800px){.scholar-box{align-items:flex-start;flex-direction:column}.pub-card{grid-template-columns:1fr;gap:4px}.pub-year{font-size:14px}}
