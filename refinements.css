@@ -4,3 +4,5 @@
 
 .workflow-intro{font-size:17px;color:var(--ink)}
 .writing-figure{margin:28px 0}.writing-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px}.writing-figure figcaption{padding-top:8px;color:var(--muted);font-size:13px;text-align:center}
+
+.about-copy p{text-align:justify;text-justify:inter-word}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.note-details{margin-top:18px;border-top:1px solid var(--line)}.note-details summary{padding:14px 0;color:var(--blue);font-weight:700;cursor:pointer}.note-details summary:hover{color:var(--teal)}.note-details div{padding:0 0 8px}.note-details p{text-align:justify}.disclaimer{font-size:14px;font-style:italic}@media(max-width:800px){.grid-2{grid-template-columns:1fr}.about-copy p{text-align:left}}
