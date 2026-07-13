@@ -23,9 +23,10 @@
         <button class="market-tab" data-market="fed" role="tab" aria-selected="false">Fed rate</button>
         <button class="market-tab" data-market="dxy" role="tab" aria-selected="false">U.S. Dollar Index</button>
       </div>
-      <div class="market-frame"><div id="market-chart" aria-label="Interactive financial chart"></div></div>
-      <div class="market-context"><p><strong id="market-title">NIFTY 50</strong></p><p id="market-note">Indian large-cap equity benchmark; exchange data may be delayed.</p></div>
-      <p class="dashboard-disclaimer">Charts show the latest data available from their providers. Exchange feeds may be delayed; the Federal Funds Rate is an official monthly series. The dashboard is for education and observation, not investment advice.</p>
+      <div class="market-frame"><img id="market-image" src="nifty-trend.svg" alt="NIFTY 50 trend from 2011 to 2026"></div>
+      <div class="market-context"><p><strong id="market-title">NIFTY 50</strong></p><div id="market-value" class="market-value">24,207</div><p id="market-note">Indian large-cap equity benchmark.</p><p id="market-asof" class="market-asof">Latest observation: July 2026</p></div>
+      <p class="dashboard-disclaimer">These charts are deliberately simple 15-year trend snapshots, updated in July 2026. They are for education and observation—not live trading tools or investment advice.</p>
+      <div class="data-sources"><a href="https://finance.yahoo.com/quote/%5ENSEI/" target="_blank" rel="noopener">NIFTY source ↗</a><a href="https://finance.yahoo.com/quote/GC%3DF/" target="_blank" rel="noopener">Gold source ↗</a><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">Fed rate source ↗</a><a href="https://finance.yahoo.com/quote/DX-Y.NYB/" target="_blank" rel="noopener">Dollar index source ↗</a></div>
     </section>
     <section class="section reveal">
       <p class="eyebrow">Reading the cycle</p>
@@ -45,7 +46,6 @@
     </section>
   </main>
   <footer><div class="wrap"><span>© 2026 Purushothaman Manivannan</span><span>Personal educational notebook</span></div></footer>
-  <script src="https://s3.tradingview.com/tv.js"></script>
   <script src="script.js"></script>
   <script src="markets.js"></script>
 </body>
