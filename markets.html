@@ -19,14 +19,30 @@
     <section class="market-dashboard reveal" aria-labelledby="market-title">
       <div class="market-tabs" role="tablist" aria-label="Select market series">
         <button class="market-tab active" data-market="nifty" role="tab" aria-selected="true">NIFTY 50</button>
-        <button class="market-tab" data-market="gold" role="tab" aria-selected="false">Gold · India</button>
+        <button class="market-tab" data-market="gold" role="tab" aria-selected="false">22K Gold · India</button>
         <button class="market-tab" data-market="fed" role="tab" aria-selected="false">Fed rate</button>
         <button class="market-tab" data-market="dxy" role="tab" aria-selected="false">U.S. Dollar Index</button>
       </div>
       <div class="market-frame"><img id="market-image" src="nifty-trend.svg" alt="NIFTY 50 trend from 2011 to 2026"></div>
       <div class="market-context"><p><strong id="market-title">NIFTY 50</strong></p><div id="market-value" class="market-value">24,207</div><p id="market-note">Indian large-cap equity benchmark.</p><p id="market-asof" class="market-asof">Latest observation: July 2026</p></div>
+      <a id="market-live-link" class="live-link" href="https://www.google.com/finance/quote/NIFTY_50:INDEXNSE" target="_blank" rel="noopener">Open live NIFTY on Google Finance ↗</a>
       <p class="dashboard-disclaimer">These charts are deliberately simple 15-year trend snapshots, updated in July 2026. They are for education and observation—not live trading tools or investment advice.</p>
       <div class="data-sources"><a href="https://finance.yahoo.com/quote/%5ENSEI/" target="_blank" rel="noopener">NIFTY source ↗</a><a href="https://finance.yahoo.com/quote/GC%3DF/" target="_blank" rel="noopener">Gold source ↗</a><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener">Fed rate source ↗</a><a href="https://finance.yahoo.com/quote/DX-Y.NYB/" target="_blank" rel="noopener">Dollar index source ↗</a></div>
+      <details id="fed-live" class="fed-live"><summary>Open interactive Federal Funds Rate chart</summary><div id="fed-widget" class="fed-widget"></div></details>
+    </section>
+    <section class="gold-calculator reveal">
+      <h2>Indicative 22K shop-price calculator</h2>
+      <p>Adjust the international gold price, USD/INR, dealer premium, or making charge to see how a local per-gram estimate is built.</p>
+      <div class="calculator-grid">
+        <label>Gold price (USD/oz)<input id="gold-usd" class="gold-input" type="number" value="4079.80" step="1"></label>
+        <label>USD/INR<input id="usd-inr" class="gold-input" type="number" value="95.37" step="0.01"></label>
+        <label>Import tariff (%)<input id="gold-duty" class="gold-input" type="number" value="15" step="0.1"></label>
+        <label>GST on gold value (%)<input id="gold-gst" class="gold-input" type="number" value="3" step="0.1"></label>
+        <label>Dealer premium (%)<input id="dealer-premium" class="gold-input" type="number" value="0" step="0.1"></label>
+        <label>Making charge (₹/g)<input id="making-charge" class="gold-input" type="number" value="0" step="50"></label>
+      </div>
+      <div class="calculator-results"><div><span>22K metal value, including duty and GST</span><strong id="gold-base-result">₹13,583 / g</strong></div><div><span>Indicative shop total</span><strong id="gold-shop-result">₹13,583 / g</strong></div></div>
+      <p class="formula">Method: (USD/oz × USD/INR ÷ 31.1035) × 22/24 × (1 + import tariff) × (1 + dealer premium) × (1 + 3% GST), plus making charges and 5% GST on those charges. Actual shop quotes vary by city, dealer spread, hallmarking, design, and discounts.</p>
     </section>
     <section class="section reveal">
       <p class="eyebrow">Reading the cycle</p>
@@ -38,14 +54,15 @@
         <article class="community-note"><h3>The dollar index</h3><p>A stronger dollar often creates pressure for dollar-priced assets and global liquidity, while a weaker dollar can support gold. These are tendencies—not fixed trading rules—and can break during stress regimes.</p></article>
       </div>
       <div class="reddit-links" aria-label="Community discussion links">
-        <a href="https://www.reddit.com/r/IndiaInvestments/search/?q=NIFTY%20SIP&amp;restrict_sr=1" target="_blank" rel="noopener">r/IndiaInvestments · NIFTY & SIPs ↗</a>
-        <a href="https://www.reddit.com/r/IndiaInvestments/search/?q=gold%20asset%20allocation&amp;restrict_sr=1" target="_blank" rel="noopener">r/IndiaInvestments · Gold allocation ↗</a>
-        <a href="https://www.reddit.com/r/investing/search/?q=gold%20dollar%20fed&amp;restrict_sr=1" target="_blank" rel="noopener">r/investing · Gold, dollar & Fed ↗</a>
-        <a href="https://www.reddit.com/r/Bogleheads/search/?q=gold%20allocation&amp;restrict_sr=1" target="_blank" rel="noopener">r/Bogleheads · Diversification debate ↗</a>
+        <a href="https://www.reddit.com/r/IndiaInvestments/wiki/index/" target="_blank" rel="noopener">r/IndiaInvestments knowledge wiki ↗</a>
+        <a href="https://www.reddit.com/r/IndiaInvestments/" target="_blank" rel="noopener">r/IndiaInvestments community ↗</a>
+        <a href="https://www.reddit.com/r/investing/" target="_blank" rel="noopener">r/investing community ↗</a>
+        <a href="https://www.reddit.com/r/Bogleheads/" target="_blank" rel="noopener">r/Bogleheads community ↗</a>
       </div>
     </section>
   </main>
   <footer><div class="wrap"><span>© 2026 Purushothaman Manivannan</span><span>Personal educational notebook</span></div></footer>
+  <script src="https://s3.tradingview.com/tv.js"></script>
   <script src="script.js"></script>
   <script src="markets.js"></script>
 </body>
