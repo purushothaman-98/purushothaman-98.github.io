@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>India Markets Notebook | Purushothaman Manivannan</title>
+  <meta name="description" content="An educational notebook on the Indian economy, index investing, valuation, and market cycles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="markets.css">
+</head>
+<body>
+  <header class="market-header">
+    <div class="market-wrap market-nav">
+      <a class="market-brand" href="markets.html">India Markets Notebook</a>
+      <nav aria-label="Markets navigation">
+        <a href="#economy">Economy</a><a href="#index">Index investing</a><a href="#frameworks">Frameworks</a><a href="#sources">Sources</a><a href="index.html">Academic site ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="market-hero">
+      <div class="market-wrap hero-layout">
+        <div>
+          <p class="market-kicker">Economics · markets · evidence</p>
+          <h1>Making sense of Indian markets without predicting the next move</h1>
+          <p class="market-lead">A personal, educational notebook on economic data, index-based investing, valuation, market cycles, and the difference between a useful backtest and a reliable rule.</p>
+          <p class="updated">First edition · Data checked 13 July 2026</p>
+        </div>
+        <aside class="legal-note">
+          <strong>Educational purpose only</strong>
+          <p>I am not a SEBI-registered Investment Adviser or Research Analyst. Nothing here is a recommendation, solicitation, target price, model portfolio, or promise of returns.</p>
+          <a href="#disclaimer">Read the full notice</a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="economy" class="market-wrap market-section">
+      <div class="section-title"><span>01</span><div><h2>India: current macro snapshot</h2><p>Official readings provide context—not a market forecast.</p></div></div>
+      <div class="stat-grid">
+        <article><div class="stat">7.7%</div><h3>Real GDP growth</h3><p>Provisional estimate for FY 2025–26, compared with 7.1% in FY 2024–25.</p><a href="https://www.mospi.gov.in/uploads/latestReleases/latest_release_1780655857536_5ac01869-ca4a-422d-b7a7-57b81da60932_Press_Note_on_GDP_Estimates_for_Q4_2025-26_and_PE_FY_2025-26_F.pdf" target="_blank" rel="noopener">MoSPI source ↗</a></article>
+        <article><div class="stat">3.93%</div><h3>CPI inflation</h3><p>Year-on-year all-India CPI inflation for May 2026, provisional.</p><a href="https://www.mospi.gov.in/themes/product/9-consumer-price-index-cpi" target="_blank" rel="noopener">MoSPI source ↗</a></article>
+        <article><div class="stat">5.25%</div><h3>Policy repo rate</h3><p>Current policy rate shown in the RBI Database on Indian Economy when checked.</p><a href="https://data.rbi.org.in/" target="_blank" rel="noopener">RBI DBIE ↗</a></article>
+      </div>
+      <div class="interpretation">
+        <h3>How I read these together</h3>
+        <p>Growth, inflation, and interest rates affect corporate demand, financing costs, household purchasing power, and the discount rate applied to future earnings. They help frame questions about valuations and risk, but none of them alone tells us whether an equity index will rise or fall next month.</p>
+      </div>
+    </section>
+
+    <section id="index" class="market-band">
+      <div class="market-wrap market-section">
+        <div class="section-title"><span>02</span><div><h2>My index-investing framework</h2><p>Process first; tactical decisions second.</p></div></div>
+        <div class="principles">
+          <article><b>01</b><h3>Keep the SIP as the base</h3><p>A fixed Systematic Investment Plan reduces dependence on prediction and keeps capital entering the market across different conditions.</p></article>
+          <article><b>02</b><h3>Treat corrections as optional</h3><p>Additional phased buying during genuine drawdowns can complement the base plan only when cash was intentionally reserved and essential goals remain protected.</p></article>
+          <article><b>03</b><h3>Judge the implementation</h3><p>For an index fund, examine the benchmark, Total Return Index comparison, expense ratio, tracking difference, tracking error, liquidity, and fund structure—not recent return alone.</p></article>
+          <article><b>04</b><h3>Respect the counterfactual</h3><p>A timing strategy beating a fixed-date SIP in one sample does not prove timing skill. Results depend on the period, cash assumptions, drawdown thresholds, and what happened after each contribution.</p></article>
+        </div>
+        <div class="community-question">
+          <p class="market-kicker">A recurring forum debate</p>
+          <h3>“SIP or buy the dip?” is usually the wrong binary.</h3>
+          <p>India-investing discussions repeatedly arrive at the same practical issue: the bottom is unknowable in real time. A more testable question is whether a rules-based correction reserve improves the total plan after accounting for idle cash, missed exposure, and behavioural execution.</p>
+          <div class="source-links"><a href="https://www.reddit.com/r/IndiaInvestments/comments/1bg0nht/did_some_backtesting_on_what_if_we_only_buy_when/" target="_blank" rel="noopener">Community discussion ↗</a><a href="https://www.reddit.com/r/IndiaInvestments/comments/kgqjvg/still_on_the_fence_about_passive_investing_this/" target="_blank" rel="noopener">Passive-investing discussion ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="frameworks" class="market-wrap market-section">
+      <div class="section-title"><span>03</span><div><h2>Interactive thinking frameworks</h2><p>Select a topic; the page changes the questions, not the answer.</p></div></div>
+      <div class="framework-tabs" role="tablist" aria-label="Analysis frameworks">
+        <button class="active" role="tab" aria-selected="true" data-panel="fund">Index fund</button>
+        <button role="tab" aria-selected="false" data-panel="drawdown">Drawdown plan</button>
+        <button role="tab" aria-selected="false" data-panel="valuation">Company valuation</button>
+      </div>
+      <div class="framework-panel" id="framework-panel" aria-live="polite"></div>
+    </section>
+
+    <section class="market-band">
+      <div class="market-wrap market-section">
+        <div class="section-title"><span>04</span><div><h2>What I will track</h2><p>A living notebook, updated when the underlying evidence changes.</p></div></div>
+        <div class="watch-grid">
+          <div><h3>Economy</h3><ul><li>GDP and sectoral GVA</li><li>CPI and food inflation</li><li>RBI policy and liquidity</li><li>Industrial production and employment</li></ul></div>
+          <div><h3>Markets</h3><ul><li>Index earnings and valuations</li><li>Market breadth and concentration</li><li>Foreign and domestic flows</li><li>Drawdowns and recovery duration</li></ul></div>
+          <div><h3>Investor process</h3><ul><li>SIP and phased accumulation</li><li>Tracking difference and costs</li><li>Risk capacity and time horizon</li><li>Backtest assumptions and failure modes</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" class="market-wrap market-section">
+      <div class="section-title"><span>05</span><div><h2>Rules and source discipline</h2><p>Primary sources for facts; forums for questions and lived experience.</p></div></div>
+      <div class="source-table">
+        <a href="https://www.sebi.gov.in/" target="_blank" rel="noopener"><strong>SEBI</strong><span>Regulations, circulars, orders, registered intermediaries</span></a>
+        <a href="https://investor.sebi.gov.in/" target="_blank" rel="noopener"><strong>SEBI Investor</strong><span>Investor education, Riskometer, adviser awareness</span></a>
+        <a href="https://www.rbi.org.in/" target="_blank" rel="noopener"><strong>RBI</strong><span>Monetary policy, banking, rates, financial stability</span></a>
+        <a href="https://www.mospi.gov.in/" target="_blank" rel="noopener"><strong>MoSPI</strong><span>GDP, CPI, IIP, labour and statistical releases</span></a>
+        <a href="https://www.niftyindices.com/" target="_blank" rel="noopener"><strong>NSE Indices</strong><span>Index methodology, factsheets, TRI data</span></a>
+      </div>
+    </section>
+
+    <section id="disclaimer" class="market-wrap disclaimer-section">
+      <h2>Important notice</h2>
+      <p>This site documents personal learning and general educational analysis. It does not consider any reader’s income, assets, liabilities, tax position, goals, time horizon, or capacity for loss. I do not provide paid or unpaid personalized securities advice, buy/sell/hold calls, return claims, trading signals, or portfolio recommendations.</p>
+      <p>Investments in securities and mutual funds involve market risk. Past performance and backtests may not be sustained. Read scheme documents, benchmark information, costs, tracking data, and the SEBI Riskometer. For personalized guidance, verify and consult a SEBI-registered Investment Adviser.</p>
+      <p><a href="https://investor.sebi.gov.in/investment_advisor.html" target="_blank" rel="noopener">Understanding registered Investment Advisers ↗</a> · <a href="https://investor.sebi.gov.in/riskometer.html" target="_blank" rel="noopener">Understanding the Riskometer ↗</a></p>
+    </section>
+  </main>
+
+  <footer class="market-footer"><div class="market-wrap"><span>© 2026 Purushothaman Manivannan</span><span>Education · evidence · no recommendations</span></div></footer>
+  <script src="markets.js"></script>
+</body>
+</html>
