@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Titan: More Than a Tata Success Story</title>
+  <desc id="desc">Editorial graphic showing a watch dial, factory silhouette and the Tata–TIDCO partnership.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061929"/><stop offset="0.62" stop-color="#153e59"/><stop offset="1" stop-color="#7d5424"/></linearGradient>
+    <radialGradient id="dial" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#fffdf6"/><stop offset="1" stop-color="#d7c39c"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="935" cy="310" r="218" fill="none" stroke="#d7a85b" stroke-width="8" opacity=".9"/>
+  <circle cx="935" cy="310" r="176" fill="url(#dial)" opacity=".96"/>
+  <g stroke="#17394d" stroke-width="7" stroke-linecap="round">
+    <line x1="935" y1="310" x2="935" y2="188"/>
+    <line x1="935" y1="310" x2="1035" y2="356"/>
+  </g>
+  <circle cx="935" cy="310" r="12" fill="#b87927"/>
+  <g stroke="#17394d" stroke-width="5">
+    <line x1="935" y1="142" x2="935" y2="164"/><line x1="1103" y1="310" x2="1081" y2="310"/><line x1="935" y1="478" x2="935" y2="456"/><line x1="767" y1="310" x2="789" y2="310"/>
+  </g>
+  <path d="M740 500h390v55H740zM770 455h95v45h-95zM880 422h115v78H880zM1015 442h85v58h-85z" fill="#071827" opacity=".88"/>
+  <path d="M0 504h690v126H0z" fill="#071521" opacity=".72"/>
+  <text x="76" y="112" fill="#d7a85b" font-family="Inter,Arial,sans-serif" font-size="26" font-weight="700" letter-spacing="3">INDIA · INDUSTRY · INSTITUTIONS</text>
+  <text x="76" y="215" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="74" font-weight="700">TITAN</text>
+  <text x="76" y="283" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="42" font-weight="600">More Than a Tata</text>
+  <text x="76" y="337" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="42" font-weight="600">Success Story</text>
+  <line x1="76" y1="374" x2="370" y2="374" stroke="#d7a85b" stroke-width="6"/>
+  <text x="76" y="430" fill="#dce8ef" font-family="Inter,Arial,sans-serif" font-size="25">How private execution and Tamil Nadu's</text>
+  <text x="76" y="466" fill="#dce8ef" font-family="Inter,Arial,sans-serif" font-size="25">joint-sector policy reinforced each other.</text>
+  <text x="76" y="570" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Purushothaman Manivannan</text>
+  <text x="443" y="570" fill="#d7a85b" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="700">TATA × TIDCO</text>
+</svg>
