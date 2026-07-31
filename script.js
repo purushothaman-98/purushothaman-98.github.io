@@ -1,6 +1,11 @@
 const button=document.querySelector('.menu-button');const links=document.querySelector('.nav-links');if(button&&links){button.addEventListener('click',()=>{const open=links.classList.toggle('open');button.setAttribute('aria-expanded',open)});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')))}const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 if(document.body&&document.querySelector('.article-body')&&location.pathname.endsWith('titan.html')){
+  const setMeta=(selector,value)=>{const el=document.querySelector(selector);if(el)el.setAttribute('content',value)};
+  const socialImage=new URL('titan-article-og.webp',location.href).href;
+  setMeta('meta[property="og:image"]',socialImage);
+  setMeta('meta[name="twitter:image"]',socialImage);
+
   const style=document.createElement('style');
   style.textContent=`
     .context-card{margin:28px 0;padding:22px;border:1px solid var(--line);border-radius:10px;background:#f7fafb}
@@ -38,7 +43,7 @@ if(document.body&&document.querySelector('.article-body')&&location.pathname.end
   const article=document.querySelector('.article-body');
   const standfirst=document.querySelector('.standfirst');
   if(article&&standfirst){
-    const hero=makeFigure('images/titan-public-private-hero.webp','Editorial illustration of Tamil Nadu development officials and private engineers jointly establishing a precision-watch factory.','<strong>Institution and execution.</strong> Titan combined public participation with professional private-sector management.<span class="image-disclosure">AI-assisted editorial illustration; conceptual reconstruction, not an archival image.</span>','hero-visual');
+    const hero=makeFigure('titan-public-private-hero.webp','Editorial illustration of Tamil Nadu development officials and private engineers jointly establishing a precision-watch factory.','<strong>Institution and execution.</strong> Titan combined public participation with professional private-sector management.<span class="image-disclosure">AI-assisted editorial illustration; conceptual reconstruction, not an archival image.</span>','hero-visual');
     hero.querySelector('img').loading='eager';
     hero.querySelector('img').fetchPriority='high';
     article.insertBefore(hero,standfirst);
@@ -77,7 +82,7 @@ if(document.body&&document.querySelector('.article-body')&&location.pathname.end
 
     const policyChain=document.querySelector('.policy-chain');
     if(policyChain){
-      const model=makeFigure('images/joint-sector-model.webp','Diagram showing how state institutional support and private operating capability combined in a joint-sector company.','<strong>How the model worked.</strong> Public institutions reduced entry barriers and represented regional goals; private partners supplied management, technology, capital and market execution.','diagram');
+      const model=makeFigure('joint-sector-model.webp','Diagram showing how state institutional support and private operating capability combined in a joint-sector company.','<strong>How the model worked.</strong> Public institutions reduced entry barriers and represented regional goals; private partners supplied management, technology, capital and market execution.','diagram');
       policyChain.insertAdjacentElement('afterend',model);
     }
   }
@@ -88,13 +93,13 @@ if(document.body&&document.querySelector('.article-body')&&location.pathname.end
     let node=hosurHeading.nextElementSibling;
     while(node&&node.tagName==='P'){hosurParagraphs.push(node);node=node.nextElementSibling}
     const anchor=hosurParagraphs[hosurParagraphs.length-1]||hosurHeading;
-    const hosur=makeFigure('images/hosur-capability-building.webp','Workers receiving precision-manufacturing training inside an early watch factory in Hosur.','<strong>Capability-building at Hosur.</strong> The factory accumulated skills, production discipline and industrial careers, not only physical output.<span class="image-disclosure">AI-assisted editorial illustration; historical interpretation, not an archival photograph.</span>');
+    const hosur=makeFigure('hosur-capability-building.webp','Workers receiving precision-manufacturing training inside an early watch factory in Hosur.','<strong>Capability-building at Hosur.</strong> The factory accumulated skills, production discipline and industrial careers, not only physical output.<span class="image-disclosure">AI-assisted editorial illustration; historical interpretation, not an archival photograph.</span>');
     anchor.insertAdjacentElement('afterend',hosur);
   }
 
   const comparisonTable=document.querySelector('.comparisons');
   if(comparisonTable){
-    const outcomes=makeFigure('images/joint-sector-outcomes.webp','Four possible outcomes of state-supported companies: retained ownership, strategic exit, industrial acquisition and infrastructure partnership.','<strong>Different endings, different forms of public value.</strong> Retention, exit, acquisition and PPP evolution each preserve some benefits while giving up others.','diagram');
+    const outcomes=makeFigure('joint-sector-outcomes.webp','Four possible outcomes of state-supported companies: retained ownership, strategic exit, industrial acquisition and infrastructure partnership.','<strong>Different endings, different forms of public value.</strong> Retention, exit, acquisition and PPP evolution each preserve some benefits while giving up others.','diagram');
     comparisonTable.insertAdjacentElement('afterend',outcomes);
   }
 
