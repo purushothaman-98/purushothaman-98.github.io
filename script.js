@@ -15,12 +15,34 @@ if(document.body&&document.querySelector('.article-body')&&location.pathname.end
     .law-grid section{padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff}
     .law-grid h3{margin-top:0}
     .context-card .small-note{font-size:13.5px!important;color:var(--muted);text-align:left!important}
-    @media(max-width:620px){.law-grid{grid-template-columns:1fr}.context-card{padding:18px}.context-card h2{font-size:22px}}
+    .essay-figure{margin:32px 0 38px}
+    .essay-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#edf2f4;box-shadow:0 12px 32px rgba(14,38,61,.08)}
+    .essay-figure figcaption{margin-top:10px;color:var(--muted);font-size:13px;line-height:1.5;text-align:left}
+    .essay-figure figcaption strong{color:var(--ink)}
+    .essay-figure.hero-visual{margin-top:0}
+    .essay-figure.diagram img{background:#fbf8f0}
+    .image-disclosure{display:block;margin-top:4px;font-size:12px;font-style:italic;color:#6b7d88}
+    @media(max-width:620px){.law-grid{grid-template-columns:1fr}.context-card{padding:18px}.context-card h2{font-size:22px}.essay-figure{margin:24px 0 30px}}
   `;
   document.head.appendChild(style);
 
+  const makeFigure=(src,alt,caption,classes='')=>{
+    const figure=document.createElement('figure');
+    figure.className=`essay-figure ${classes}`.trim();
+    figure.innerHTML=`<img src="${src}" alt="${alt}" loading="lazy" decoding="async"><figcaption>${caption}</figcaption>`;
+    const image=figure.querySelector('img');
+    image.addEventListener('error',()=>figure.remove(),{once:true});
+    return figure;
+  };
+
+  const article=document.querySelector('.article-body');
   const standfirst=document.querySelector('.standfirst');
-  if(standfirst){
+  if(article&&standfirst){
+    const hero=makeFigure('images/titan-public-private-hero.webp','Editorial illustration of Tamil Nadu development officials and private engineers jointly establishing a precision-watch factory.','<strong>Institution and execution.</strong> Titan combined public participation with professional private-sector management.<span class="image-disclosure">AI-assisted editorial illustration; conceptual reconstruction, not an archival image.</span>','hero-visual');
+    hero.querySelector('img').loading='eager';
+    hero.querySelector('img').fetchPriority='high';
+    article.insertBefore(hero,standfirst);
+
     const series=document.createElement('section');
     series.className='context-card series-card';
     series.id='about-the-series';
@@ -50,8 +72,30 @@ if(document.body&&document.querySelector('.article-body')&&location.pathname.end
       </div>
       <p>Titan should therefore not be described as a company "created by the MRTP Act." A more accurate statement is that Titan arose inside a regulated industrial environment in which a state development corporation could make a large-house project easier to negotiate, approve and anchor locally through equity and governance.</p>
       <p>The MRTP Act was later repealed through section 66 of the Competition Act, 2002, with the modern framework shifting toward competition in markets rather than simply the size of an industrial house.</p>
-      <p class="small-note"><strong>Official legal trail:</strong> <a href="https://www.indiacode.nic.in/handle/123456789/2118?view_type=browse" target="_blank" rel="noopener">Industries (Development and Regulation) Act, 1951</a> · <a href="https://www.indiacode.nic.in/show-data?actid=AC_CEN_22_29_00005_200312_1517807324781&orderno=98" target="_blank" rel="noopener">Competition Act, section 66: repeal and savings</a> · <a href="https://www.indiacode.nic.in/repealedfileopen?rfilename=A1984-30.pdf" target="_blank" rel="noopener">MRTP Amendment Act, 1984</a></p>`;
+      <p class="small-note"><strong>Official legal trail:</strong> <a href="https://www.indiacode.nic.in/handle/123456789/2118?view_type=browse" target="_blank" rel="noopener">Industries (Development and Regulation) Act, 1951</a> · <a href="https://www.indiacode.nic.in/show-data?actid=AC_CEN_22_29_00005_200312_1517807324781&orderno=98" target="_blank" rel="noopener">Competition Act, section 66</a> · <a href="https://www.indiacode.nic.in/repealedfileopen?rfilename=A1984-30.pdf" target="_blank" rel="noopener">MRTP Amendment Act, 1984</a></p>`;
     if(firstPolicyPara) firstPolicyPara.insertAdjacentElement('afterend',act); else policyHeading.insertAdjacentElement('afterend',act);
+
+    const policyChain=document.querySelector('.policy-chain');
+    if(policyChain){
+      const model=makeFigure('images/joint-sector-model.webp','Diagram showing how state institutional support and private operating capability combined in a joint-sector company.','<strong>How the model worked.</strong> Public institutions reduced entry barriers and represented regional goals; private partners supplied management, technology, capital and market execution.','diagram');
+      policyChain.insertAdjacentElement('afterend',model);
+    }
+  }
+
+  const hosurHeading=document.getElementById('hosur');
+  if(hosurHeading){
+    const hosurParagraphs=[];
+    let node=hosurHeading.nextElementSibling;
+    while(node&&node.tagName==='P'){hosurParagraphs.push(node);node=node.nextElementSibling}
+    const anchor=hosurParagraphs[hosurParagraphs.length-1]||hosurHeading;
+    const hosur=makeFigure('images/hosur-capability-building.webp','Workers receiving precision-manufacturing training inside an early watch factory in Hosur.','<strong>Capability-building at Hosur.</strong> The factory accumulated skills, production discipline and industrial careers, not only physical output.<span class="image-disclosure">AI-assisted editorial illustration; historical interpretation, not an archival photograph.</span>');
+    anchor.insertAdjacentElement('afterend',hosur);
+  }
+
+  const comparisonTable=document.querySelector('.comparisons');
+  if(comparisonTable){
+    const outcomes=makeFigure('images/joint-sector-outcomes.webp','Four possible outcomes of state-supported companies: retained ownership, strategic exit, industrial acquisition and infrastructure partnership.','<strong>Different endings, different forms of public value.</strong> Retention, exit, acquisition and PPP evolution each preserve some benefits while giving up others.','diagram');
+    comparisonTable.insertAdjacentElement('afterend',outcomes);
   }
 
   const toc=document.querySelector('.aside-card ol');
