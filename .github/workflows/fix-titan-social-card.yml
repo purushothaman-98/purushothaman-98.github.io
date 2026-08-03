@@ -62,7 +62,7 @@ jobs:
               html = html.replace(marker, extra + '\n  ' + marker, 1)
 
           twitter_marker = '<meta name="twitter:image" content="https://purushothaman-98.github.io/titan-article-og.png">'
-          twitter_alt = '<meta name="twitter:image:alt" content="Titan, TIDCO and Tamil Nadu\'s public-private industrial model">'
+          twitter_alt = "<meta name=\"twitter:image:alt\" content=\"Titan, TIDCO and Tamil Nadu's public-private industrial model\">"
           if 'twitter:image:alt' not in html:
               html = html.replace(twitter_marker, twitter_marker + '\n  ' + twitter_alt, 1)
 
