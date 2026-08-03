@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <title>Investment Monitor | P. Manivannan</title>
-  <meta name="description" content="Private-style personal investment monitoring dashboard with holdings, transactions, allocation and portfolio performance.">
+  <meta name="description" content="Browser-side personal investment monitoring dashboard with holdings, transactions, allocation and portfolio performance.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,13 +13,12 @@
 </head>
 <body>
   <noscript><div class="noscript">This dashboard requires JavaScript.</div></noscript>
-
   <header class="topbar">
     <div class="shell topbar-inner">
       <a class="brand" href="index.html">P. Manivannan</a>
       <div class="topbar-actions">
-        <span id="connectionBadge" class="badge badge-snapshot">Snapshot mode</span>
-        <button id="refreshButton" class="button secondary" type="button">Refresh data</button>
+        <span id="connectionBadge" class="badge badge-snapshot">Local snapshot</span>
+        <button id="refreshButton" class="button secondary" type="button">Reload saved data</button>
       </div>
     </div>
   </header>
@@ -29,108 +28,71 @@
       <div>
         <p class="eyebrow">Personal investment dashboard</p>
         <h1>Portfolio Monitor</h1>
-        <p class="hero-copy">
-          Actual holdings, invested capital, portfolio value, daily transactions, allocation and contribution to profit or loss.
-        </p>
+        <p class="hero-copy">Actual holdings, invested capital, portfolio value, daily transactions, allocation and contribution to profit or loss.</p>
       </div>
       <div class="hero-meta">
         <span>Data as of</span>
-        <strong id="asOfLabel">Loading…</strong>
-        <small id="sourceNote">Loading portfolio data…</small>
+        <strong id="asOfLabel">No workbook imported</strong>
+        <small id="sourceNote">Your financial data stays inside this browser.</small>
       </div>
     </section>
 
     <section class="status-panel" id="statusPanel">
       <div>
-        <strong id="statusTitle">Loading portfolio snapshot</strong>
-        <p id="statusMessage">The dashboard is reading the GitHub data file.</p>
+        <strong id="statusTitle">Import the portfolio workbook</strong>
+        <p id="statusMessage">Choose the workbook created from your Angel One statements. It will be processed locally and will not be uploaded to GitHub.</p>
       </div>
-      <span id="lastLoaded">—</span>
+      <span id="lastLoaded">Waiting for data</span>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow dark">Private browser import</p>
+          <h2>Load your portfolio database</h2>
+          <p class="chart-note">Recommended file: <strong>Portfolio_Dividend_and_Market_Analysis_2026-07-28.xlsx</strong>. The required sheets are Holdings Summary, Market Analysis and Transactions.</p>
+        </div>
+        <div class="filters">
+          <label class="button secondary" for="workbookInput">Choose Excel workbook</label>
+          <input id="workbookInput" type="file" accept=".xlsx,.xls" hidden>
+          <button id="clearButton" class="button secondary" type="button">Clear browser data</button>
+        </div>
+      </div>
     </section>
 
     <section class="kpi-grid" aria-label="Portfolio summary">
-      <article class="kpi-card">
-        <span>Market value</span>
-        <strong id="marketValue">—</strong>
-        <small id="marketValueDelta">Current holdings</small>
-      </article>
-      <article class="kpi-card">
-        <span>Open-lot cost</span>
-        <strong id="costBasis">—</strong>
-        <small>Cost of current holdings</small>
-      </article>
-      <article class="kpi-card">
-        <span>Unrealized P&amp;L</span>
-        <strong id="unrealizedPnl">—</strong>
-        <small id="unrealizedPct">—</small>
-      </article>
-      <article class="kpi-card">
-        <span>Dividends</span>
-        <strong id="dividends">—</strong>
-        <small>Estimated gross entitlement</small>
-      </article>
-      <article class="kpi-card">
-        <span>Total tracked gain</span>
-        <strong id="trackedGain">—</strong>
-        <small>Open P&amp;L + dividends + closed trades</small>
-      </article>
-      <article class="kpi-card">
-        <span>Day high / low</span>
-        <strong id="dayRange">Not collected</strong>
-        <small>Starts after live snapshots are connected</small>
-      </article>
+      <article class="kpi-card"><span>Market value</span><strong id="marketValue">—</strong><small id="marketValueDelta">Current holdings</small></article>
+      <article class="kpi-card"><span>Open-lot cost</span><strong id="costBasis">—</strong><small>Cost of current holdings</small></article>
+      <article class="kpi-card"><span>Unrealized P&amp;L</span><strong id="unrealizedPnl">—</strong><small id="unrealizedPct">—</small></article>
+      <article class="kpi-card"><span>Dividends</span><strong id="dividends">—</strong><small>Estimated gross entitlement</small></article>
+      <article class="kpi-card"><span>Total tracked gain</span><strong id="trackedGain">—</strong><small>Open P&amp;L + dividends + closed trades</small></article>
+      <article class="kpi-card"><span>Day high / low</span><strong id="dayRange">Not collected</strong><small>Starts after live snapshots are connected</small></article>
     </section>
 
     <section class="grid grid-main">
       <article class="panel panel-wide">
         <div class="panel-head">
-          <div>
-            <p class="eyebrow dark">Cash-flow history</p>
-            <h2>Daily buys, sells and net capital deployed</h2>
-          </div>
+          <div><p class="eyebrow dark">Cash-flow history</p><h2>Daily buys, sells and net capital deployed</h2></div>
           <div class="range-buttons" aria-label="Chart period">
-            <button class="range-button active" data-months="0">All</button>
-            <button class="range-button" data-months="12">1Y</button>
-            <button class="range-button" data-months="6">6M</button>
-            <button class="range-button" data-months="3">3M</button>
-            <button class="range-button" data-months="1">1M</button>
+            <button class="range-button active" data-months="0">All</button><button class="range-button" data-months="12">1Y</button><button class="range-button" data-months="6">6M</button><button class="range-button" data-months="3">3M</button><button class="range-button" data-months="1">1M</button>
           </div>
         </div>
         <div class="chart-wrap chart-tall"><canvas id="capitalChart"></canvas></div>
-        <p class="chart-note">
-          Bars show daily purchases and sales. The line shows cumulative net cash deployed. The current portfolio-value marker is shown only for the latest available market snapshot.
-        </p>
+        <p class="chart-note">Bars show daily purchases and sales. The line shows cumulative net cash deployed. The latest workbook market value appears as a separate marker.</p>
       </article>
-
       <article class="panel">
-        <div class="panel-head">
-          <div>
-            <p class="eyebrow dark">Allocation</p>
-            <h2>Sector weights</h2>
-          </div>
-        </div>
+        <div class="panel-head"><div><p class="eyebrow dark">Allocation</p><h2>Sector weights</h2></div></div>
         <div class="chart-wrap"><canvas id="allocationChart"></canvas></div>
       </article>
     </section>
 
     <section class="grid grid-two">
       <article class="panel">
-        <div class="panel-head">
-          <div>
-            <p class="eyebrow dark">Performance contribution</p>
-            <h2>Total P&amp;L by holding</h2>
-          </div>
-        </div>
+        <div class="panel-head"><div><p class="eyebrow dark">Performance contribution</p><h2>Total P&amp;L by holding</h2></div></div>
         <div class="chart-wrap chart-tall"><canvas id="pnlChart"></canvas></div>
       </article>
-
       <article class="panel">
-        <div class="panel-head">
-          <div>
-            <p class="eyebrow dark">Collected snapshots</p>
-            <h2>Portfolio value versus invested capital</h2>
-          </div>
-        </div>
+        <div class="panel-head"><div><p class="eyebrow dark">Collected snapshots</p><h2>Portfolio value versus invested capital</h2></div></div>
         <div class="chart-wrap chart-tall"><canvas id="snapshotChart"></canvas></div>
         <p id="snapshotNote" class="chart-note"></p>
       </article>
@@ -138,106 +100,44 @@
 
     <section class="panel table-panel">
       <div class="panel-head">
-        <div>
-          <p class="eyebrow dark">Current holdings</p>
-          <h2>Stock-level monitor</h2>
-        </div>
+        <div><p class="eyebrow dark">Current holdings</p><h2>Stock-level monitor</h2></div>
         <input id="holdingSearch" class="input" type="search" placeholder="Search holding">
       </div>
       <div class="table-scroll">
-        <table id="holdingsTable">
-          <thead>
-            <tr>
-              <th data-sort="symbol">Stock</th>
-              <th data-sort="sector">Sector</th>
-              <th data-sort="quantity">Qty</th>
-              <th data-sort="average_cost">Avg cost</th>
-              <th data-sort="price">Price</th>
-              <th data-sort="market_value">Market value</th>
-              <th data-sort="unrealized_pnl">Unrealized P&amp;L</th>
-              <th data-sort="total_return_pct">Total return</th>
-              <th data-sort="weight_pct">Weight</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+        <table id="holdingsTable"><thead><tr><th data-sort="symbol">Stock</th><th data-sort="sector">Sector</th><th data-sort="quantity">Qty</th><th data-sort="average_cost">Avg cost</th><th data-sort="price">Price</th><th data-sort="market_value">Market value</th><th data-sort="unrealized_pnl">Unrealized P&amp;L</th><th data-sort="total_return_pct">Total return</th><th data-sort="weight_pct">Weight</th></tr></thead><tbody></tbody></table>
       </div>
     </section>
 
     <section class="panel table-panel">
       <div class="panel-head transaction-head">
-        <div>
-          <p class="eyebrow dark">Activity ledger</p>
-          <h2>Daily purchases and sales</h2>
-        </div>
+        <div><p class="eyebrow dark">Activity ledger</p><h2>Daily purchases and sales</h2></div>
         <div class="filters">
           <select id="symbolFilter" class="input"><option value="">All stocks</option></select>
-          <select id="sideFilter" class="input">
-            <option value="">Buy and sell</option>
-            <option value="Buy">Buys only</option>
-            <option value="Sell">Sells only</option>
-          </select>
-          <select id="limitFilter" class="input">
-            <option value="50">Latest 50</option>
-            <option value="100">Latest 100</option>
-            <option value="250">Latest 250</option>
-            <option value="1000">All transactions</option>
-          </select>
+          <select id="sideFilter" class="input"><option value="">Buy and sell</option><option value="Buy">Buys only</option><option value="Sell">Sells only</option></select>
+          <select id="limitFilter" class="input"><option value="50">Latest 50</option><option value="100">Latest 100</option><option value="250">Latest 250</option><option value="1000">All transactions</option></select>
         </div>
       </div>
       <div class="table-scroll">
-        <table id="transactionsTable">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Stock</th>
-              <th>Side</th>
-              <th>Quantity</th>
-              <th>Execution price</th>
-              <th>Amount</th>
-              <th>Type</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+        <table id="transactionsTable"><thead><tr><th>Date</th><th>Stock</th><th>Side</th><th>Quantity</th><th>Execution price</th><th>Amount</th><th>Type</th></tr></thead><tbody></tbody></table>
       </div>
     </section>
 
     <section class="grid grid-two">
       <article class="panel info-panel">
-        <p class="eyebrow dark">Current operating mode</p>
-        <h2>Snapshot dashboard</h2>
-        <p>
-          The page currently reads a sanitised JSON file stored in GitHub. It contains no Angel One API key, secret, client code, MPIN, TOTP seed or access token.
-        </p>
-        <ul>
-          <li>The existing 431 transactions and 12 current holdings are loaded.</li>
-          <li>Refresh checks whether the GitHub data file has changed.</li>
-          <li>Prices remain at the latest imported snapshot until the private collector is connected.</li>
-        </ul>
+        <p class="eyebrow dark">Privacy design</p><h2>No holdings stored in public GitHub</h2>
+        <p>The Excel workbook is read locally by your browser. Parsed data is stored only in this browser's local storage so the page can reopen without another upload.</p>
+        <ul><li>No Angel One credentials are requested.</li><li>No PAN, client code or source-statement filenames are retained.</li><li>Clearing browser data removes the locally stored portfolio snapshot.</li></ul>
       </article>
       <article class="panel info-panel">
-        <p class="eyebrow dark">Next connection</p>
-        <h2>SmartAPI read-only collector</h2>
-        <p>
-          A private backend will later fetch holdings, trade book and market quotes, calculate portfolio snapshots and publish only sanitised results for this page.
-        </p>
-        <ul>
-          <li>No order-placement, modification, cancellation or GTT functions.</li>
-          <li>Intraday snapshots can produce exact portfolio day high and day low.</li>
-          <li>New purchases and sales will appear automatically in the activity ledger.</li>
-        </ul>
+        <p class="eyebrow dark">Next connection</p><h2>SmartAPI read-only collector</h2>
+        <p>A private backend can later update live holdings, trade book and market quotes while publishing only sanitised portfolio calculations to this interface.</p>
+        <ul><li>No order-placement, modification, cancellation or GTT functions.</li><li>Intraday snapshots will produce portfolio day high and low.</li><li>New buys and sells will appear automatically.</li></ul>
       </article>
     </section>
   </main>
 
-  <footer>
-    <div class="shell footer-inner">
-      <span>Personal monitoring tool · Not investment advice</span>
-      <a href="index.html">Back to main website</a>
-    </div>
-  </footer>
-
+  <footer><div class="shell footer-inner"><span>Personal monitoring tool · Not investment advice</span><a href="index.html">Back to main website</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="portfolio.js"></script>
 </body>
