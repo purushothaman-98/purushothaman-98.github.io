@@ -23,14 +23,14 @@ jobs:
       - name: Generate social card and update metadata
         run: python .github/scripts/fix_titan_social_card.py
 
-      - name: Commit generated PNG and metadata
+      - name: Commit generated JPG and metadata
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add titan.html titan-article-og.png
+          git add titan.html titan-social-card-20260803.jpg
           if git diff --cached --quiet; then
             echo 'No changes to commit.'
           else
-            git commit -m 'Fix Titan social preview image'
+            git commit -m 'Use compressed Titan social preview card'
             git push
           fi
